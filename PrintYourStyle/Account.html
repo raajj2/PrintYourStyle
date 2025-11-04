@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PrintYourStyle | Custom T-Shirts</title>
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <link rel="stylesheet" href="/css/style.css">
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@3.3.2/dist/tailwind.min.css" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/a2d9d5d8a3.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <style>
+    .active-tab {
+      background-color: rgba(162, 198, 23, 0.15);
+      font-weight: 600;
+    }
+
+    /* Toast animation */
+    @keyframes fadeInOut {
+      0%,100% {opacity: 0; transform: translateY(20px);}
+      10%,90% {opacity: 1; transform: translateY(0);}
+    }
+    /* Optional: Slim modern scrollbar for orders list */
+    #ordersSection::-webkit-scrollbar,
+    #ordersSection .space-y-6::-webkit-scrollbar {
+      width: 8px;
+    }
+    #ordersSection::-webkit-scrollbar-thumb,
+    #ordersSection .space-y-6::-webkit-scrollbar-thumb {
+      background-color: rgba(162, 198, 23, 0.4);
+      border-radius: 10px;
+    }
+
+  </style>
+
+</head>
+<body class="bg-[#fffbf0] text-[#353c1b] font-sans antialiased">
+
+    <nav class="bg-[#fffbf0] dark:bg-[#fffbf0] antialiased">
+        <div class="max-w-screen-xl px-4 mx-auto 2xl:px-0 py-4">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-8">
+
+                <div class="shrink-0 flex items-center">
+                <a href="/" title="PrintYourStyle" class="flex items-center space-x-2">
+                    <!-- Light mode logo -->
+                    <img
+                    class="block w-auto h-18 dark:hidden"
+                    src="/assets/images/image.png"
+                    alt="PrintYourStyle Logo"
+                    loading="lazy"
+                    >
+
+                    <!-- Dark mode logo -->
+                    <img
+                    class="hidden w-auto h-18 dark:block"
+                    src="/assets/images/image.png"
+                    alt="PrintYourStyle Logo Dark"
+                    loading="lazy"
+                    >
+                </a>
+                </div>
+                    <ul class="hidden lg:flex items-center justify-start gap-6 md:gap-8 py-3 sm:justify-center">
+                    <li>
+                        <a href="/index.html" title="" class="flex text-lg font-semibold text-[#353c1b] hover:text-[#a2c617] dark:text-[#353c1b] dark:hover:text-[#a2c617] transition-colors duration-200">
+                        Home
+                        </a>
+                    </li>
+                    <li class="shrink-0">
+                        <a href="/shop.html" title="" class="flex text-lg font-semibold text-[#353c1b] hover:text-[#a2c617] dark:text-[#353c1b] dark:hover:text-[#a2c617] transition-colors duration-200">
+                        Shop
+                        </a>
+                    </li>
+                    <li class="shrink-0">
+                        <a href="/customize.html" title="" class="flex text-lg font-semibold text-[#353c1b] hover:text-[#a2c617] dark:text-[#353c1b] dark:hover:text-[#a2c617] transition-colors duration-200">
+                        Customize
+                        </a>
+                    </li>
+                    <li class="shrink-0">
+                        <a href="/about.html" title="" class="flex text-lg font-semibold text-[#353c1b] hover:text-[#a2c617] dark:text-[#353c1b] dark:hover:text-[#a2c617] transition-colors duration-200">
+                        About Us
+                        </a>
+                    </li>
+                    <li class="shrink-0">
+                        <a href="/contact.html" title="" class="flex text-lg font-semibold text-[#353c1b] hover:text-[#a2c617] dark:text-[#353c1b] dark:hover:text-[#a2c617] transition-colors duration-200">
+                        Contact
+                        </a>
+                    </li>
+                    </ul>
+
+                </div>
+
+                <div class="flex items-center lg:space-x-2">
+                <button id="myCartDropdownButton1" onclick="window.location.href='Cart.html'" type="button"
+                    class="inline-flex items-center rounded-lg justify-center p-2 hover:bg-[#a2c617]/20 text-sm font-medium leading-none text-[#353c1b]  transition" >
+                    <span class="sr-only">Cart</span>
+                    <svg class="w-8 h-8 lg:me-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M5 4h1.5L9 16m0 0h8m-8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm-8.5-3h9.25L19 7H7.312" />
+                    </svg>
+                    <span class="hidden sm:flex">My Cart</span>
+                </button>
+
+                <button id="userDropdownButton1" onclick="window.location.href='Account.html'" type="button"
+                    class="inline-flex items-center rounded-lg justify-center p-2 hover:bg-[#a2c617]/20 text-sm font-medium text-[#353c1b] transition">
+                    <svg class="w-8 h-8 me-1" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                    <path stroke="currentColor" stroke-width="2"
+                        d="M7 17v1a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1v-1a3 3 0 0 0-3-3h-4a3 3 0 0 0-3 3Zm8-9a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+                    </svg>
+                    <span class="hidden sm:flex">Account</span>
+            
+                </button>
+                <!-- 📱 Mobile Menu Button -->
+                <button id="mobileMenuBtn"
+                    class="lg:hidden inline-flex items-center justify-center rounded-md p-2 hover:bg-[#a2c617]/20 text-[#353c1b] transition">
+                    <svg id="menuIcon" class="w-8 h-8" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" d="M4 6h16M4 12h16M4 18h16" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- 📱 Fullscreen Mobile Menu -->
+        <div id="mobileMenu"
+            class="fixed inset-0 hidden bg-[#fffbf0] z-40 flex flex-col items-center justify-center text-center space-y-8 transition-all duration-500 ease-in-out">
+            
+            <!-- Close Button -->
+            <button id="closeMenuBtn" class="absolute top-6 right-6 text-[#353c1b] hover:text-[#a2c617]">
+            <svg class="w-10 h-10" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+            </button>
+
+            <!-- Menu Links -->
+            <a href="/index.html" class="text-2xl font-bold text-[#353c1b] hover:text-[#a2c617] transition">Home</a>
+            <a href="/shop.html" class="text-2xl font-bold text-[#353c1b] hover:text-[#a2c617] transition">Shop</a>
+            <a href="/customize.html" class="text-2xl font-bold text-[#353c1b] hover:text-[#a2c617] transition">Customize</a>
+            <a href="/about.html" class="text-2xl font-bold text-[#353c1b] hover:text-[#a2c617] transition">About Us</a>
+            <a href="/contact.html" class="text-2xl font-bold text-[#353c1b] hover:text-[#a2c617] transition">Contact</a>
+            <a href="/cart.html" class="text-2xl font-bold text-[#353c1b] hover:text-[#a2c617] transition">My Cart</a>
+            <a href="/account.html" class="text-2xl font-bold text-[#353c1b] hover:text-[#a2c617] transition">Account</a>
+        </div>
+    </nav>
+
+    <section class="max-w-screen-xl mx-auto px-4 lg:px-8 py-16">
+
+      <!-- Page Header -->
+      <div class="text-center mb-12">
+        <h1 class="text-4xl font-bold mb-2">My Account</h1>
+        <p class="text-lg text-[#555]">Manage your profile, orders, and preferences all in one place.</p>
+      </div>
+
+      <!-- Account Card Layout -->
+      <div class="grid md:grid-cols-3 gap-8">
+
+        <!-- Sidebar Menu -->
+        <div class="bg-white rounded-2xl shadow-md p-6 space-y-4">
+          <div class="flex items-center gap-3 pb-4 border-b border-gray-200">
+            <div class="relative">
+              <img id="profileImagePreview" src="/assets/images/profile.jpg" class="w-14 h-14 rounded-full object-cover" alt="Profile" />
+              <label for="profileImageUpload" class="absolute bottom-0 right-0 bg-[#a2c617] text-white p-1 rounded-full cursor-pointer text-xs">
+                <i class="fa-solid fa-camera"></i>
+              </label>
+              <input id="profileImageUpload" type="file" accept="image/*" class="hidden" />
+            </div>
+            <div>
+              <h2 class="font-semibold text-lg">Hello, Raj 👋</h2>
+              <p class="text-sm text-gray-600">raj@example.com</p>
+            </div>
+          </div>
+
+          <nav class="flex flex-col space-y-2">
+            <button class="w-full text-left py-2 px-3 rounded-lg hover:bg-[#a2c617]/20 transition flex items-center gap-2" id="profileTab">
+              <i class="fa-solid fa-user"></i> Profile Info
+            </button>
+            <button class="w-full text-left py-2 px-3 rounded-lg hover:bg-[#a2c617]/20 transition flex items-center gap-2" id="ordersTab">
+              <i class="fa-solid fa-bag-shopping"></i> My Orders
+            </button>
+            <button class="w-full text-left py-2 px-3 rounded-lg hover:bg-[#a2c617]/20 transition flex items-center gap-2" id="settingsTab">
+              <i class="fa-solid fa-gear"></i> Settings
+            </button>
+            <button class="w-full text-left py-2 px-3 rounded-lg hover:bg-[#a2c617]/20 transition flex items-center gap-2" id="logoutBtn">
+              <i class="fa-solid fa-right-from-bracket"></i> Logout
+            </button>
+          </nav>
+        </div>
+
+        <!-- Main Content Area -->
+        <div class="md:col-span-2 bg-white rounded-2xl shadow-lg p-8 space-y-10 max-h-[80vh] overflow-y-auto">
+
+
+          <!-- Profile Info -->
+          <div id="profileSection">
+            <h3 class="text-2xl font-semibold mb-6 flex items-center gap-2">
+              <i class="fa-solid fa-user text-[#a2c617]"></i> Profile Information
+            </h3>
+            <form class="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div>
+                <label class="block mb-2 font-medium">Full Name</label>
+                <input type="text" value="Raj Kumar" class="w-full border border-gray-300 rounded-lg p-3 focus:ring-2 focus:ring-[#a2c617] outline-none transition" />
+              </div>
+              <div>
+                <label class="block mb-2 font-medium">Email Address</label>
+                <input type="email" value="raj@example.com" class="w-full border border-gray-300 rounded-lg p-3 focus:ring-2 focus:ring-[#a2c617]" />
+              </div>
+              <div>
+                <label class="block mb-2 font-medium">Phone Number</label>
+                <input type="text" placeholder="+91 98765 43210" class="w-full border border-gray-300 rounded-lg p-3 focus:ring-2 focus:ring-[#a2c617]" />
+              </div>
+              <div>
+                <label class="block mb-2 font-medium">Shipping Address</label>
+                <input type="text" placeholder="123 Street, City, State" class="w-full border border-gray-300 rounded-lg p-3 focus:ring-2 focus:ring-[#a2c617]" />
+              </div>
+              <div class="md:col-span-2 text-right">
+                <button type="submit" class="bg-[#a2c617] text-[#353c1b] px-6 py-3 rounded-lg font-semibold hover:bg-[#8cb312] transition">Update Profile</button>
+              </div>
+            </form>
+          </div>
+
+          <!-- Orders Section -->
+          <div id="ordersSection" class="hidden">
+            <h3 class="text-2xl font-semibold mb-6 flex items-center gap-2">
+              <i class="fa-solid fa-bag-shopping text-[#a2c617]"></i> Your Orders
+            </h3>
+
+            <!-- Scrollable Orders List -->
+            <div class="space-y-6 max-h-[500px] overflow-y-auto pr-2">
+
+              <!-- Order 1 -->
+              <div class="order-card border border-gray-200 rounded-xl p-5 shadow-sm hover:shadow-md transition">
+                <div class="flex flex-col md:flex-row justify-between items-center">
+                  <div>
+                    <p class="font-semibold text-lg">#ORD-10235</p>
+                    <p class="text-sm text-gray-500">Placed on: Oct 25, 2025</p>
+                  </div>
+                  <div class="flex items-center gap-3">
+                    <span class="px-4 py-1 text-sm rounded-full bg-[#a2c617]/20 text-[#353c1b] font-medium">Delivered</span>
+                    <button class="view-details text-[#a2c617] hover:underline">View Details</button>
+                  </div>
+                </div>
+
+                <!-- Hidden details section -->
+                <div class="order-details hidden mt-4 border-t border-gray-200 pt-4 text-sm text-gray-700">
+                  <p><strong>Product:</strong> EcoGreen Smart Blender</p>
+                  <p><strong>Quantity:</strong> 1</p>
+                  <p><strong>Total:</strong> ₹2,499</p>
+                  <p><strong>Delivery Address:</strong> 123 Street, City, State</p>
+                  <p><strong>Status:</strong> Delivered on Oct 30, 2025</p>
+                </div>
+              </div>
+
+              <!-- Order 2 -->
+              <div class="order-card border border-gray-200 rounded-xl p-5 shadow-sm hover:shadow-md transition">
+                <div class="flex flex-col md:flex-row justify-between items-center">
+                  <div>
+                    <p class="font-semibold text-lg">#ORD-10212</p>
+                    <p class="text-sm text-gray-500">Placed on: Sep 10, 2025</p>
+                  </div>
+                  <div class="flex items-center gap-3">
+                    <span class="px-4 py-1 text-sm rounded-full bg-[#fee79c]/40 text-[#353c1b] font-medium">In Transit</span>
+                    <button class="track-order text-[#a2c617] hover:underline">Track Order</button>
+                  </div>
+                </div>
+
+                <!-- Hidden tracking details -->
+                <div class="tracking-details hidden mt-4 border-t border-gray-200 pt-4 text-sm text-gray-700">
+                  <p><strong>Product:</strong> EcoBottle Stainless 1L</p>
+                  <p><strong>Tracking ID:</strong> TRK902314IN</p>
+                  <p><strong>Courier:</strong> Bluedart Express</p>
+                  <p><strong>Current Status:</strong> In Transit — Expected delivery by Nov 6, 2025</p>
+                  <p><strong>Last Update:</strong> Arrived at Chennai Sorting Facility</p>
+                </div>
+              </div>
+
+              <!-- Order 1 -->
+              <div class="order-card border border-gray-200 rounded-xl p-5 shadow-sm hover:shadow-md transition">
+                <div class="flex flex-col md:flex-row justify-between items-center">
+                  <div>
+                    <p class="font-semibold text-lg">#ORD-10235</p>
+                    <p class="text-sm text-gray-500">Placed on: Oct 25, 2025</p>
+                  </div>
+                  <div class="flex items-center gap-3">
+                    <span class="px-4 py-1 text-sm rounded-full bg-[#a2c617]/20 text-[#353c1b] font-medium">Delivered</span>
+                    <button class="view-details text-[#a2c617] hover:underline">View Details</button>
+                  </div>
+                </div>
+
+                <!-- Hidden details section -->
+                <div class="order-details hidden mt-4 border-t border-gray-200 pt-4 text-sm text-gray-700">
+                  <p><strong>Product:</strong> EcoGreen Smart Blender</p>
+                  <p><strong>Quantity:</strong> 1</p>
+                  <p><strong>Total:</strong> ₹2,499</p>
+                  <p><strong>Delivery Address:</strong> 123 Street, City, State</p>
+                  <p><strong>Status:</strong> Delivered on Oct 30, 2025</p>
+                </div>
+              </div>
+
+              <!-- Order 2 -->
+              <div class="order-card border border-gray-200 rounded-xl p-5 shadow-sm hover:shadow-md transition">
+                <div class="flex flex-col md:flex-row justify-between items-center">
+                  <div>
+                    <p class="font-semibold text-lg">#ORD-10212</p>
+                    <p class="text-sm text-gray-500">Placed on: Sep 10, 2025</p>
+                  </div>
+                  <div class="flex items-center gap-3">
+                    <span class="px-4 py-1 text-sm rounded-full bg-[#fee79c]/40 text-[#353c1b] font-medium">In Transit</span>
+                    <button class="track-order text-[#a2c617] hover:underline">Track Order</button>
+                  </div>
+                </div>
+
+                <!-- Hidden tracking details -->
+                <div class="tracking-details hidden mt-4 border-t border-gray-200 pt-4 text-sm text-gray-700">
+                  <p><strong>Product:</strong> EcoBottle Stainless 1L</p>
+                  <p><strong>Tracking ID:</strong> TRK902314IN</p>
+                  <p><strong>Courier:</strong> Bluedart Express</p>
+                  <p><strong>Current Status:</strong> In Transit — Expected delivery by Nov 6, 2025</p>
+                  <p><strong>Last Update:</strong> Arrived at Chennai Sorting Facility</p>
+                </div>
+              </div>
+
+              <!-- Order 1 -->
+              <div class="order-card border border-gray-200 rounded-xl p-5 shadow-sm hover:shadow-md transition">
+                <div class="flex flex-col md:flex-row justify-between items-center">
+                  <div>
+                    <p class="font-semibold text-lg">#ORD-10235</p>
+                    <p class="text-sm text-gray-500">Placed on: Oct 25, 2025</p>
+                  </div>
+                  <div class="flex items-center gap-3">
+                    <span class="px-4 py-1 text-sm rounded-full bg-[#a2c617]/20 text-[#353c1b] font-medium">Delivered</span>
+                    <button class="view-details text-[#a2c617] hover:underline">View Details</button>
+                  </div>
+                </div>
+
+                <!-- Hidden details section -->
+                <div class="order-details hidden mt-4 border-t border-gray-200 pt-4 text-sm text-gray-700">
+                  <p><strong>Product:</strong> EcoGreen Smart Blender</p>
+                  <p><strong>Quantity:</strong> 1</p>
+                  <p><strong>Total:</strong> ₹2,499</p>
+                  <p><strong>Delivery Address:</strong> 123 Street, City, State</p>
+                  <p><strong>Status:</strong> Delivered on Oct 30, 2025</p>
+                </div>
+              </div>
+
+              <!-- Order 2 -->
+              <div class="order-card border border-gray-200 rounded-xl p-5 shadow-sm hover:shadow-md transition">
+                <div class="flex flex-col md:flex-row justify-between items-center">
+                  <div>
+                    <p class="font-semibold text-lg">#ORD-10212</p>
+                    <p class="text-sm text-gray-500">Placed on: Sep 10, 2025</p>
+                  </div>
+                  <div class="flex items-center gap-3">
+                    <span class="px-4 py-1 text-sm rounded-full bg-[#fee79c]/40 text-[#353c1b] font-medium">In Transit</span>
+                    <button class="track-order text-[#a2c617] hover:underline">Track Order</button>
+                  </div>
+                </div>
+
+                <!-- Hidden tracking details -->
+                <div class="tracking-details hidden mt-4 border-t border-gray-200 pt-4 text-sm text-gray-700">
+                  <p><strong>Product:</strong> EcoBottle Stainless 1L</p>
+                  <p><strong>Tracking ID:</strong> TRK902314IN</p>
+                  <p><strong>Courier:</strong> Bluedart Express</p>
+                  <p><strong>Current Status:</strong> In Transit — Expected delivery by Nov 6, 2025</p>
+                  <p><strong>Last Update:</strong> Arrived at Chennai Sorting Facility</p>
+                </div>
+              </div>
+
+              <!-- Order 1 -->
+              <div class="order-card border border-gray-200 rounded-xl p-5 shadow-sm hover:shadow-md transition">
+                <div class="flex flex-col md:flex-row justify-between items-center">
+                  <div>
+                    <p class="font-semibold text-lg">#ORD-10235</p>
+                    <p class="text-sm text-gray-500">Placed on: Oct 25, 2025</p>
+                  </div>
+                  <div class="flex items-center gap-3">
+                    <span class="px-4 py-1 text-sm rounded-full bg-[#a2c617]/20 text-[#353c1b] font-medium">Delivered</span>
+                    <button class="view-details text-[#a2c617] hover:underline">View Details</button>
+                  </div>
+                </div>
+
+                <!-- Hidden details section -->
+                <div class="order-details hidden mt-4 border-t border-gray-200 pt-4 text-sm text-gray-700">
+                  <p><strong>Product:</strong> EcoGreen Smart Blender</p>
+                  <p><strong>Quantity:</strong> 1</p>
+                  <p><strong>Total:</strong> ₹2,499</p>
+                  <p><strong>Delivery Address:</strong> 123 Street, City, State</p>
+                  <p><strong>Status:</strong> Delivered on Oct 30, 2025</p>
+                </div>
+              </div>
+
+              <!-- Order 2 -->
+              <div class="order-card border border-gray-200 rounded-xl p-5 shadow-sm hover:shadow-md transition">
+                <div class="flex flex-col md:flex-row justify-between items-center">
+                  <div>
+                    <p class="font-semibold text-lg">#ORD-10212</p>
+                    <p class="text-sm text-gray-500">Placed on: Sep 10, 2025</p>
+                  </div>
+                  <div class="flex items-center gap-3">
+                    <span class="px-4 py-1 text-sm rounded-full bg-[#fee79c]/40 text-[#353c1b] font-medium">In Transit</span>
+                    <button class="track-order text-[#a2c617] hover:underline">Track Order</button>
+                  </div>
+                </div>
+
+                <!-- Hidden tracking details -->
+                <div class="tracking-details hidden mt-4 border-t border-gray-200 pt-4 text-sm text-gray-700">
+                  <p><strong>Product:</strong> EcoBottle Stainless 1L</p>
+                  <p><strong>Tracking ID:</strong> TRK902314IN</p>
+                  <p><strong>Courier:</strong> Bluedart Express</p>
+                  <p><strong>Current Status:</strong> In Transit — Expected delivery by Nov 6, 2025</p>
+                  <p><strong>Last Update:</strong> Arrived at Chennai Sorting Facility</p>
+                </div>
+              </div>
+
+              
+            </div>
+          </div>
+
+
+          <!-- Settings Section -->
+          <div id="settingsSection" class="hidden">
+            <h3 class="text-2xl font-semibold mb-6 flex items-center gap-2">
+              <i class="fa-solid fa-gear text-[#a2c617]"></i> Account Settings
+            </h3>
+            <form class="space-y-6">
+              <div>
+                <label class="block mb-2 font-medium">Change Password</label>
+                <div class="relative">
+                  <input id="newPassword" type="password" placeholder="Enter new password" class="w-full border border-gray-300 rounded-lg p-3 focus:ring-2 focus:ring-[#a2c617]" />
+                  <i id="togglePassword" class="fa-solid fa-eye absolute right-4 top-3.5 text-gray-500 cursor-pointer"></i>
+                </div>
+              </div>
+              <div>
+                <label class="block mb-2 font-medium">Confirm Password</label>
+                <input type="password" placeholder="Confirm new password" class="w-full border border-gray-300 rounded-lg p-3 focus:ring-2 focus:ring-[#a2c617]" />
+              </div>
+              <button type="submit" class="bg-[#a2c617] text-[#353c1b] px-6 py-3 rounded-lg font-semibold hover:bg-[#8cb312] transition">Save Changes</button>
+            </form>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <div id="toast" class="fixed bottom-6 right-6 bg-[#a2c617] text-[#353c1b] px-4 py-3 rounded-lg font-medium shadow-md hidden"></div>
+
+    <footer 
+      class="relative overflow-hidden bg-gradient-to-b from-[#fffbea] to-[#fffbf0] text-[#353c1b] rounded-t-[3rem] shadow-inner py-16 px-6 md:px-12"
+      id="footer"
+      data-aos="fade-up"
+      data-aos-duration="800"
+    >
+      <!-- Soft glow animation background -->
+      <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[30rem] h-[30rem] bg-[#a2c617]/10 blur-[100px] rounded-full opacity-50 animate-pulse"></div>
+
+      <div class="relative z-10 mx-auto max-w-screen-xl">
+        <div class="md:flex md:justify-between md:items-start mb-12">
+          <!-- 🟢 Logo and description -->
+          <div class="mb-10 md:mb-0 flex flex-col items-center md:items-start text-center md:text-left">
+            <a href="#" class="flex items-center group">
+              <img 
+                src="/assets/images/image.png" 
+                class="h-20 transition-transform duration-300 group-hover:scale-105" 
+                alt="Print Your Style Logo" 
+              />
+            </a>
+            <p class="text-sm text-[#353c1b]/70 mt-4 max-w-sm">
+              Crafting high-quality, custom T-shirts that make your brand or idea shine. Designed, printed, and delivered with care.
+            </p>
+          </div>
+
+          <!-- 🟢 Footer Links -->
+          <div class="grid grid-cols-2 gap-10 sm:gap-16 sm:grid-cols-3 text-center md:text-left">
+            <!-- Resources -->
+            <div>
+              <h2 class="mb-5 text-sm font-semibold uppercase text-[#a2c617] tracking-wide">Resources</h2>
+              <ul class="space-y-2">
+                <li><a href="#" class="hover:text-[#a2c617] transition-all duration-300 hover:pl-1">Shop</a></li>
+                <li><a href="#" class="hover:text-[#a2c617] transition-all duration-300 hover:pl-1">Customize</a></li>
+                <li><a href="#" class="hover:text-[#a2c617] transition-all duration-300 hover:pl-1">Design Help</a></li>
+              </ul>
+            </div>
+
+            <!-- Follow Us -->
+            <div>
+              <h2 class="mb-5 text-sm font-semibold uppercase text-[#a2c617] tracking-wide">Follow Us</h2>
+              <ul class="space-y-2">
+                <li><a href="#" class="hover:text-[#a2c617] transition-all duration-300 hover:pl-1">Instagram</a></li>
+                <li><a href="#" class="hover:text-[#a2c617] transition-all duration-300 hover:pl-1">Facebook</a></li>
+              </ul>
+            </div>
+
+            <!-- Legal -->
+            <div>
+              <h2 class="mb-5 text-sm font-semibold uppercase text-[#a2c617] tracking-wide">Legal</h2>
+              <ul class="space-y-2">
+                <li><a href="#" class="hover:text-[#a2c617] transition-all duration-300 hover:pl-1">Privacy Policy</a></li>
+                <li><a href="#" class="hover:text-[#a2c617] transition-all duration-300 hover:pl-1">Terms &amp; Conditions</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Divider -->
+        <hr class="border-t border-[#a2c617]/20 my-8" />
+
+        <!-- 🟢 Bottom Info -->
+        <div class="sm:flex sm:items-center sm:justify-between text-center sm:text-left">
+          <span class="text-sm text-[#353c1b]/70">
+            © 2025 <a href="#" class="text-[#a2c617] font-medium hover:underline">Print Your Style™</a>. All Rights Reserved.
+          </span>
+
+          <div class="flex justify-center sm:justify-end mt-4 sm:mt-0 space-x-6">
+            <a href="#" class="text-[#353c1b]/70 hover:text-[#a2c617] transition transform hover:scale-110">
+              <i data-lucide="facebook" class="w-5 h-5"></i>
+            </a>
+            <a href="#" class="text-[#353c1b]/70 hover:text-[#a2c617] transition transform hover:scale-110">
+              <i data-lucide="instagram" class="w-5 h-5"></i>
+            </a>
+            <a href="#" class="text-[#353c1b]/70 hover:text-[#a2c617] transition transform hover:scale-110">
+              <i data-lucide="tiktok" class="w-5 h-5"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </footer>
+    
+    <script>
+      const profileTab = document.getElementById('profileTab');
+      const ordersTab = document.getElementById('ordersTab');
+      const settingsTab = document.getElementById('settingsTab');
+      const logoutBtn = document.getElementById('logoutBtn');
+      const allTabs = [profileTab, ordersTab, settingsTab];
+
+      const profileSection = document.getElementById('profileSection');
+      const ordersSection = document.getElementById('ordersSection');
+      const settingsSection = document.getElementById('settingsSection');
+      const sections = [profileSection, ordersSection, settingsSection];
+
+      const hideAll = () => sections.forEach(s => s.classList.add('hidden'));
+      const setActive = (tab) => {
+        allTabs.forEach(t => t.classList.remove('active-tab'));
+        tab.classList.add('active-tab');
+      };
+
+      // Tab switching with highlight
+      profileTab.addEventListener('click', () => {
+        hideAll(); profileSection.classList.remove('hidden'); setActive(profileTab);
+      });
+      ordersTab.addEventListener('click', () => {
+        hideAll(); ordersSection.classList.remove('hidden'); setActive(ordersTab);
+      });
+      settingsTab.addEventListener('click', () => {
+        hideAll(); settingsSection.classList.remove('hidden'); setActive(settingsTab);
+      });
+
+      // Logout toast
+      logoutBtn.addEventListener('click', () => {
+        showToast('You have been logged out successfully!');
+        setTimeout(() => (window.location.href = '/index.html'), 1500);
+      });
+
+      // ✅ Toast function
+      function showToast(message) {
+        const toast = document.getElementById('toast');
+        toast.textContent = message;
+        toast.classList.remove('hidden');
+        toast.style.animation = 'fadeInOut 2.5s ease';
+        setTimeout(() => toast.classList.add('hidden'), 2500);
+      }
+
+      // ✅ Password visibility toggle
+      const togglePassword = document.getElementById('togglePassword');
+      const newPassword = document.getElementById('newPassword');
+      if (togglePassword && newPassword) {
+        togglePassword.addEventListener('click', () => {
+          const type = newPassword.getAttribute('type') === 'password' ? 'text' : 'password';
+          newPassword.setAttribute('type', type);
+          togglePassword.classList.toggle('fa-eye');
+          togglePassword.classList.toggle('fa-eye-slash');
+        });
+      }
+
+      // ✅ Profile image upload + preview
+      const uploadInput = document.getElementById('profileImageUpload');
+      const imagePreview = document.getElementById('profileImagePreview');
+      if (uploadInput && imagePreview) {
+        uploadInput.addEventListener('change', e => {
+          const file = e.target.files[0];
+          if (file) {
+            const reader = new FileReader();
+            reader.onload = e => (imagePreview.src = e.target.result);
+            reader.readAsDataURL(file);
+            showToast('🖼️ Profile picture updated!');
+          }
+        });
+      }
+
+      // ✅ Mobile sidebar toggle
+      const menuToggle = document.getElementById('menuToggle');
+      const sidebar = document.querySelector('.bg-white.rounded-2xl.shadow-md.p-6.space-y-4');
+      if (menuToggle && sidebar) {
+        menuToggle.addEventListener('click', () => sidebar.classList.toggle('hidden'));
+      }
+
+// 🛍️ Order Details Toggle + Smooth Scroll
+document.querySelectorAll('.view-details').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const card = btn.closest('.order-card');
+    const details = card.querySelector('.order-details');
+    const isHidden = details.classList.contains('hidden');
+
+    details.classList.toggle('hidden');
+    btn.textContent = isHidden ? 'Hide Details' : 'View Details';
+
+    // Smooth scroll into view when expanding
+    if (isHidden) {
+      setTimeout(() => card.scrollIntoView({ behavior: 'smooth', block: 'nearest' }), 150);
+    }
+  });
+});
+
+// 🚚 Track Order Toggle + Smooth Scroll
+document.querySelectorAll('.track-order').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const card = btn.closest('.order-card');
+    const tracking = card.querySelector('.tracking-details');
+    const isHidden = tracking.classList.contains('hidden');
+
+    tracking.classList.toggle('hidden');
+    btn.textContent = isHidden ? 'Hide Tracking' : 'Track Order';
+
+    // Smooth scroll into view when expanding
+    if (isHidden) {
+      setTimeout(() => card.scrollIntoView({ behavior: 'smooth', block: 'nearest' }), 150);
+    }
+  });
+});
+
+// 🌀 Auto-scroll Orders Section when there are many
+const ordersList = document.querySelector('#ordersSection .space-y-6');
+if (ordersList && ordersList.scrollHeight > ordersList.clientHeight) {
+  let scrollDirection = 1; // 1 = down, -1 = up
+
+  setInterval(() => {
+    ordersList.scrollTop += scrollDirection * 1; // scroll speed
+    if (
+      ordersList.scrollTop + ordersList.clientHeight >= ordersList.scrollHeight ||
+      ordersList.scrollTop <= 0
+    ) {
+      scrollDirection *= -1; // reverse direction
+    }
+  }, 30); // 30ms = smooth gentle scroll
+}
+
+
+
+    </script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="/js/script.js"></script>
+    <script src="/js/hero-slider.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/3.1.2/flowbite.js" integrity="sha512-c9m0HP/+jR+ZgMbKqLHtvn8nT0IiJiw0NhgSWedfZWi1QvGS39Kz2w4Sbo7rD1eYA+fm7ypCLNR0gbAJv2mHQA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</body>
+</html>
