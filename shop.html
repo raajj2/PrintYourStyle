@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PrintYourStyle | Custom T-Shirts</title>
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body class="bg-[#fffbf0] text-[#353c1b] font-sans antialiased">
+
+    <nav class="bg-[#fffbf0] dark:bg-[#fffbf0] antialiased">
+        <div class="max-w-screen-xl px-4 mx-auto 2xl:px-0 py-4">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-8">
+
+                <div class="shrink-0 flex items-center">
+                <a href="/" title="PrintYourStyle" class="flex items-center space-x-2">
+                    <!-- Light mode logo -->
+                    <img
+                    class="block w-auto h-18 dark:hidden"
+                    src="/assets/images/image.png"
+                    alt="PrintYourStyle Logo"
+                    loading="lazy"
+                    >
+
+                    <!-- Dark mode logo -->
+                    <img
+                    class="hidden w-auto h-18 dark:block"
+                    src="/assets/images/image.png"
+                    alt="PrintYourStyle Logo Dark"
+                    loading="lazy"
+                    >
+                </a>
+                </div>
+                    <ul class="hidden lg:flex items-center justify-start gap-6 md:gap-8 py-3 sm:justify-center">
+                    <li>
+                        <a href="/index.html" title="" class="flex text-lg font-semibold text-[#353c1b] hover:text-[#a2c617] dark:text-[#353c1b] dark:hover:text-[#a2c617] transition-colors duration-200">
+                        Home
+                        </a>
+                    </li>
+                    <li class="shrink-0">
+                        <a href="/shop.html" title="" class="flex text-lg font-semibold text-[#353c1b] hover:text-[#a2c617] dark:text-[#353c1b] dark:hover:text-[#a2c617] transition-colors duration-200">
+                        Shop
+                        </a>
+                    </li>
+                    <li class="shrink-0">
+                        <a href="/customize.html" title="" class="flex text-lg font-semibold text-[#353c1b] hover:text-[#a2c617] dark:text-[#353c1b] dark:hover:text-[#a2c617] transition-colors duration-200">
+                        Customize
+                        </a>
+                    </li>
+                    <li class="shrink-0">
+                        <a href="/about.html" title="" class="flex text-lg font-semibold text-[#353c1b] hover:text-[#a2c617] dark:text-[#353c1b] dark:hover:text-[#a2c617] transition-colors duration-200">
+                        About Us
+                        </a>
+                    </li>
+                    <li class="shrink-0">
+                        <a href="/contact.html" title="" class="flex text-lg font-semibold text-[#353c1b] hover:text-[#a2c617] dark:text-[#353c1b] dark:hover:text-[#a2c617] transition-colors duration-200">
+                        Contact
+                        </a>
+                    </li>
+                    </ul>
+
+                </div>
+
+                <div class="flex items-center lg:space-x-2">
+                <button id="myCartDropdownButton1" onclick="window.location.href='Cart.html'" type="button"
+                    class="inline-flex items-center rounded-lg justify-center p-2 hover:bg-[#a2c617]/20 text-sm font-medium leading-none text-[#353c1b]  transition" >
+                    <span class="sr-only">Cart</span>
+                    <svg class="w-8 h-8 lg:me-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M5 4h1.5L9 16m0 0h8m-8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm-8.5-3h9.25L19 7H7.312" />
+                    </svg>
+                    <span class="hidden sm:flex">My Cart</span>
+                </button>
+
+                <button id="userDropdownButton1" onclick="window.location.href='Account.html'" type="button"
+                    class="inline-flex items-center rounded-lg justify-center p-2 hover:bg-[#a2c617]/20 text-sm font-medium text-[#353c1b] transition">
+                    <svg class="w-8 h-8 me-1" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                    <path stroke="currentColor" stroke-width="2"
+                        d="M7 17v1a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1v-1a3 3 0 0 0-3-3h-4a3 3 0 0 0-3 3Zm8-9a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+                    </svg>
+                    <span class="hidden sm:flex">Account</span>
+            
+                </button>
+                <!-- 📱 Mobile Menu Button -->
+                <button id="mobileMenuBtn"
+                    class="lg:hidden inline-flex items-center justify-center rounded-md p-2 hover:bg-[#a2c617]/20 text-[#353c1b] transition">
+                    <svg id="menuIcon" class="w-8 h-8" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" d="M4 6h16M4 12h16M4 18h16" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- 📱 Fullscreen Mobile Menu -->
+        <div id="mobileMenu"
+            class="fixed inset-0 hidden bg-[#fffbf0] z-40 flex flex-col items-center justify-center text-center space-y-8 transition-all duration-500 ease-in-out">
+            
+            <!-- Close Button -->
+            <button id="closeMenuBtn" class="absolute top-6 right-6 text-[#353c1b] hover:text-[#a2c617]">
+            <svg class="w-10 h-10" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+            </button>
+
+            <!-- Menu Links -->
+            <a href="/index.html" class="text-2xl font-bold text-[#353c1b] hover:text-[#a2c617] transition">Home</a>
+            <a href="/shop.html" class="text-2xl font-bold text-[#353c1b] hover:text-[#a2c617] transition">Shop</a>
+            <a href="/customize.html" class="text-2xl font-bold text-[#353c1b] hover:text-[#a2c617] transition">Customize</a>
+            <a href="/about.html" class="text-2xl font-bold text-[#353c1b] hover:text-[#a2c617] transition">About Us</a>
+            <a href="/contact.html" class="text-2xl font-bold text-[#353c1b] hover:text-[#a2c617] transition">Contact</a>
+            <a href="/cart.html" class="text-2xl font-bold text-[#353c1b] hover:text-[#a2c617] transition">My Cart</a>
+            <a href="/account.html" class="text-2xl font-bold text-[#353c1b] hover:text-[#a2c617] transition">Account</a>
+        </div>
+    </nav>
+
+
+<main class="bg-[#fffbf0] text-[#353c1b] font-sans">
+  <!-- 🌿 Hero Section -->
+  <section class="relative py-24 overflow-hidden">
+    <div class="absolute inset-0 -z-10">
+      <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/paper-fibers.png')] opacity-10"></div>
+      <div class="absolute inset-0 bg-gradient-to-b from-[#fee79c]/40 via-transparent to-[#d1a9e8]/40"></div>
+    </div>
+
+    <div class="max-w-7xl mx-auto px-6 text-center">
+      <h1 class="text-5xl md:text-6xl font-extrabold tracking-tight drop-shadow-sm" data-aos="fade-down">
+        Shop Your Style
+      </h1>
+      <p class="mt-5 text-lg md:text-xl text-[#353c1b]/70 max-w-3xl mx-auto" data-aos="fade-up">
+        Explore premium-quality, eco-inspired T-shirts crafted for comfort, color, and creativity.
+      </p>
+    </div>
+  </section>
+  <!-- Sticky filter + search -->
+  <div class="sticky top-0 z-30 backdrop-blur-sm bg-[#fffbf0]/80 border-b border-[#a2c617]/10">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+      <div class="flex items-center gap-3">
+        <button onclick="filterProducts('all')" id="filter-all"
+          class="filter-btn px-4 py-2 rounded-full border border-[#a2c617] bg-white/60 hover:bg-[#a2c617]/10 transition font-medium">All</button>
+        <button onclick="filterProducts('men')" id="filter-men"
+          class="filter-btn px-4 py-2 rounded-full border border-[#a2c617] bg-white/60 hover:bg-[#a2c617]/10 transition font-medium">Men</button>
+        <button onclick="filterProducts('women')" id="filter-women"
+          class="filter-btn px-4 py-2 rounded-full border border-[#a2c617] bg-white/60 hover:bg-[#a2c617]/10 transition font-medium">Women</button>
+      </div>
+
+      <div class="flex items-center gap-3">
+        <label for="sortSelect" class="hidden sm:inline text-sm font-medium mr-2">Sort</label>
+        <select id="sortSelect" class="rounded-lg border border-[#a2c617]/30 px-3 py-2 focus:ring-2 focus:ring-[#a2c617]">
+          <option value="featured">Featured</option>
+          <option value="price-asc">Price: Low → High</option>
+          <option value="price-desc">Price: High → Low</option>
+          <option value="newest">Newest</option>
+        </select>
+
+        <input id="searchInput" type="text" placeholder="Search products..."
+          class="ml-3 w-56 sm:w-80 rounded-full border border-[#a2c617]/30 px-4 py-2 shadow-sm placeholder:text-[#353c1b]/50 focus:outline-none focus:ring-2 focus:ring-[#a2c617]" />
+      </div>
+    </div>
+  </div>
+
+  <!-- Product Grid Section (no heading as requested) -->
+  <section class="relative py-14">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-10">
+
+            <div data-aos="fade-up" class="group relative rounded-2xl overflow-hidden border border-[#a2c617]/30 bg-white shadow-sm hover:shadow-lg transition-all duration-500 transform hover:-translate-y-2 hover:scale-[1.02] card-shadow">
+                <button onclick="toggleWishlist(this,'robot-toy')" class="absolute end-4 top-4 z-10 rounded-full bg-white/80 backdrop-blur p-2 text-[#353c1b] hover:text-[#a2c617]" aria-label="wishlist">🤍</button>
+
+                <div class="overflow-hidden cursor-pointer" role="button"
+                onclick="openQuickView({
+                    id:'OFFICIAL DISNEY MERCHANDISE',
+                    title:'OFFICIAL DISNEY MERCHANDISE',
+                    price:999,
+                    desc:'Unisex White & Red Mickey Graphic Printed Plus Size T-shirt.',
+                    image:'/assets/images/pr1/im1.jpg',
+                    images:[
+                    '/assets/images/pr1/im1.jpg',
+                    '/assets/images/pr1/im2.jpg',
+                    '/assets/images/pr1/im3.jpg',
+                    '/assets/images/pr1/im4.jpg',
+                    '/assets/images/pr1/im5.jpg'
+                    ]
+                })">
+                <img src="/assets/images/pr1/im1.jpg" alt="Robot Toy" class="h-64 w-full object-cover transition-transform duration-700 group-hover:scale-110" />
+                </div>
+
+                <div class="p-6">
+                <span class="inline-block bg-[#fee79c] text-[#353c1b] px-3 py-1 text-xs font-semibold rounded-full uppercase tracking-wide">Best Seller</span>
+                <h3 class="mt-4 text-lg font-semibold text-[#353c1b] group-hover:text-[#a2c617]">OFFICIAL DISNEY MERCHANDISE</h3>
+                <p class="mt-1 text-[#353c1b]/80">$999</p>
+                <button onclick="addToCartAndGo({id:'OFFICIAL DISNEY MERCHANDISE',title:'OFFICIAL DISNEY MERCHANDISE',price:999,image:'/assets/images/pr1/im2.jpg'})"
+                    class="mt-4 w-full rounded-xl bg-gradient-to-r from-[#a2c617] to-[#fee79c] text-[#353c1b] font-medium py-3">🛒 Add to Cart</button>
+                </div>
+            </div>
+
+            <div data-aos="fade-up" data-aos-delay="100" class="group relative rounded-2xl overflow-hidden border border-[#a2c617]/30 bg-white shadow-sm hover:shadow-lg transition-all duration-500 transform hover:-translate-y-2 hover:scale-[1.02] card-shadow">
+                <button onclick="toggleWishlist(this,'Green Stay Weird Typography Oversized')" class="absolute end-4 top-4 z-10 rounded-full bg-white/80 backdrop-blur p-2 text-[#353c1b] hover:text-[#a2c617]" aria-label="wishlist">🤍</button>
+
+                <div class="overflow-hidden cursor-pointer"
+                onclick="openQuickView({
+                    id:'Green Stay Weird Typography Oversized',
+                    title:'Green Stay Weird Typography Oversized',
+                    price:599,
+                    desc:'Stay bold and comfy in this Green “Stay Weird” oversized tee — soft cotton, relaxed fit, and standout style.',
+                    image:'/assets/images/pr2/im1.jpg',
+                    images:[
+                    '/assets/images/pr2/im1.jpg',
+                    '/assets/images/pr2/im2.jpg',
+                    '/assets/images/pr2/im3.jpg',
+                    '/assets/images/pr2/im4.jpg'
+                    ]
+                })">
+                <img src="/assets/images/pr2/im1.jpg" alt="Wooden Train" class="h-64 w-full object-cover transition-transform duration-700 group-hover:scale-110" />
+                </div>
+
+                <div class="p-6">
+                <span class="inline-block bg-[#fee79c] text-[#353c1b] px-3 py-1 text-xs font-semibold rounded-full uppercase tracking-wide">Best Seller</span>
+                <h3 class="mt-4 text-lg font-semibold text-[#353c1b] group-hover:text-[#a2c617]">Green Stay Weird Typography Oversized</h3>
+                <p class="mt-1 text-[#353c1b]/80">$599</p>
+                <button onclick="addToCartAndGo({id:'Green Stay Weird Typography Oversized',title:'Green Stay Weird Typography Oversized',price:599,image:'/assets/images/pr2/im1.jpg'})"
+                    class="mt-4 w-full rounded-xl bg-gradient-to-r from-[#a2c617] to-[#fee79c] text-[#353c1b] font-medium py-3">🛒 Add to Cart</button>
+                </div>
+            </div>
+
+            <div data-aos="fade-up" data-aos-delay="300" class="group relative rounded-2xl overflow-hidden border border-[#a2c617]/30 bg-white shadow-sm hover:shadow-lg transition-all duration-500 transform hover:-translate-y-2 hover:scale-[1.02] card-shadow">
+                <button onclick="toggleWishlist(this,'OFFICIAL GARFIELD MERCHANDISE')" class="absolute end-4 top-4 z-10 rounded-full bg-white/80 backdrop-blur p-2 text-[#353c1b] hover:text-[#a2c617]" aria-label="wishlist">🤍</button>
+
+                <div class="overflow-hidden cursor-pointer"
+                onclick="openQuickView({
+                    id:'OFFICIAL GARFIELD MERCHANDISE',
+                    title:'OFFICIAL GARFIELD MERCHANDISE',
+                    price:649,
+                    desc:'Women Blue Lazy Garfield Graphic Printed Oversized T-shirt',
+                    image:'/assets/images/pr3/im1.jpg',
+                    images:[
+                    '/assets/images/pr3/im1.jpg',
+                    '/assets/images/pr3/im2.jpg',
+                    '/assets/images/pr3/im3.jpg',
+                    '/assets/images/pr3/im4.jpg'
+                    ]
+                })">
+                <img src="/assets/images/pr3/im1.jpg" alt="OFFICIAL GARFIELD MERCHANDISE" class="h-64 w-full object-cover transition-transform duration-700 group-hover:scale-110" />
+                </div>
+
+                <div class="p-6">
+                <span class="inline-block bg-[#fee79c] text-[#353c1b] px-3 py-1 text-xs font-semibold rounded-full uppercase tracking-wide">Trending</span>
+                <h3 class="mt-4 text-lg font-semibold text-[#353c1b] group-hover:text-[#a2c617]">OFFICIAL GARFIELD MERCHANDISE</h3>
+                <p class="mt-1 text-[#353c1b]/80">$649</p>
+                <button onclick="addToCartAndGo({id:'OFFICIAL GARFIELD MERCHANDISE',title:'OFFICIAL GARFIELD MERCHANDISE',price:649,image:'/assets/images/pr3/im1.jpg'})"
+                    class="mt-4 w-full rounded-xl bg-gradient-to-r from-[#a2c617] to-[#fee79c] text-[#353c1b] font-medium py-3">🛒 Add to Cart</button>
+                </div>
+            </div>
+
+            <div data-aos="fade-up" data-aos-delay="300" class="group relative rounded-2xl overflow-hidden border border-[#a2c617]/30 bg-white shadow-sm hover:shadow-lg transition-all duration-500 transform hover:-translate-y-2 hover:scale-[1.02] card-shadow">
+                <button onclick="toggleWishlist(this,'Men\'s Red Moon Rider Graphic Printed Oversized T-shirt')" class="absolute end-4 top-4 z-10 rounded-full bg-white/80 backdrop-blur p-2 text-[#353c1b] hover:text-[#a2c617]" aria-label="wishlist">🤍</button>
+
+                <div class="overflow-hidden cursor-pointer"
+                    onclick="openQuickView({
+                        id:'Men\'s Red Moon Rider Graphic Printed Oversized T-shirt',
+                        title:'Men\'s Red Moon Rider Graphic Printed Oversized T-shirt',
+                        price:599,
+                        desc:'Men\'s Red Moon Rider Graphic Printed Oversized T-shirt',
+                        image:'/assets/images/pr4/im1.jpg',
+                        images:[
+                            '/assets/images/pr4/im1.jpg',
+                            '/assets/images/pr4/im2.jpg',
+                            '/assets/images/pr4/im3.jpg',
+                            '/assets/images/pr4/im4.jpg'
+                        ]
+                    })">
+                    <img src="/assets/images/pr4/im1.jpg" alt="Men's Red Moon Rider Graphic Printed Oversized T-shirt" class="h-64 w-full object-cover transition-transform duration-700 group-hover:scale-110" />
+                </div>
+
+                <div class="p-6">
+                    <span class="inline-block bg-[#fee79c] text-[#353c1b] px-3 py-1 text-xs font-semibold rounded-full uppercase tracking-wide">Trending</span>
+                    <h3 class="mt-4 text-lg font-semibold text-[#353c1b] group-hover:text-[#a2c617]">Men's Red Moon Rider Graphic Printed Oversized T-shirt</h3>
+                    <p class="mt-1 text-[#353c1b]/80">$599</p>
+                    <button onclick="addToCartAndGo({id:'Men\'s Red Moon Rider Graphic Printed Oversized T-shirt',title:'Men\'s Red Moon Rider Graphic Printed Oversized T-shirt',price:599,image:'/assets/images/pr4/im1.jpg'})"
+                        class="mt-4 w-full rounded-xl bg-gradient-to-r from-[#a2c617] to-[#fee79c] text-[#353c1b] font-medium py-3">🛒 Add to Cart</button>
+                </div>
+            </div>
+            
+            <div data-aos="fade-up" class="group relative rounded-2xl overflow-hidden border border-[#a2c617]/30 bg-white shadow-sm hover:shadow-lg transition-all duration-500 transform hover:-translate-y-2 hover:scale-[1.02] card-shadow">
+                <button onclick="toggleWishlist(this,'robot-toy')" class="absolute end-4 top-4 z-10 rounded-full bg-white/80 backdrop-blur p-2 text-[#353c1b] hover:text-[#a2c617]" aria-label="wishlist">🤍</button>
+
+                <div class="overflow-hidden cursor-pointer" role="button"
+                onclick="openQuickView({
+                    id:'OFFICIAL DISNEY MERCHANDISE',
+                    title:'OFFICIAL DISNEY MERCHANDISE',
+                    price:999,
+                    desc:'Unisex White & Red Mickey Graphic Printed Plus Size T-shirt.',
+                    image:'/assets/images/pr1/im1.jpg',
+                    images:[
+                    '/assets/images/pr1/im1.jpg',
+                    '/assets/images/pr1/im2.jpg',
+                    '/assets/images/pr1/im3.jpg',
+                    '/assets/images/pr1/im4.jpg',
+                    '/assets/images/pr1/im5.jpg'
+                    ]
+                })">
+                <img src="/assets/images/pr1/im1.jpg" alt="Robot Toy" class="h-64 w-full object-cover transition-transform duration-700 group-hover:scale-110" />
+                </div>
+
+                <div class="p-6">
+                <span class="inline-block bg-[#fee79c] text-[#353c1b] px-3 py-1 text-xs font-semibold rounded-full uppercase tracking-wide">Best Seller</span>
+                <h3 class="mt-4 text-lg font-semibold text-[#353c1b] group-hover:text-[#a2c617]">OFFICIAL DISNEY MERCHANDISE</h3>
+                <p class="mt-1 text-[#353c1b]/80">$999</p>
+                <button onclick="addToCartAndGo({id:'OFFICIAL DISNEY MERCHANDISE',title:'OFFICIAL DISNEY MERCHANDISE',price:999,image:'/assets/images/pr1/im2.jpg'})"
+                    class="mt-4 w-full rounded-xl bg-gradient-to-r from-[#a2c617] to-[#fee79c] text-[#353c1b] font-medium py-3">🛒 Add to Cart</button>
+                </div>
+            </div>
+
+            <div data-aos="fade-up" data-aos-delay="100" class="group relative rounded-2xl overflow-hidden border border-[#a2c617]/30 bg-white shadow-sm hover:shadow-lg transition-all duration-500 transform hover:-translate-y-2 hover:scale-[1.02] card-shadow">
+                <button onclick="toggleWishlist(this,'Green Stay Weird Typography Oversized')" class="absolute end-4 top-4 z-10 rounded-full bg-white/80 backdrop-blur p-2 text-[#353c1b] hover:text-[#a2c617]" aria-label="wishlist">🤍</button>
+
+                <div class="overflow-hidden cursor-pointer"
+                onclick="openQuickView({
+                    id:'Green Stay Weird Typography Oversized',
+                    title:'Green Stay Weird Typography Oversized',
+                    price:599,
+                    desc:'Stay bold and comfy in this Green “Stay Weird” oversized tee — soft cotton, relaxed fit, and standout style.',
+                    image:'/assets/images/pr2/im1.jpg',
+                    images:[
+                    '/assets/images/pr2/im1.jpg',
+                    '/assets/images/pr2/im2.jpg',
+                    '/assets/images/pr2/im3.jpg',
+                    '/assets/images/pr2/im4.jpg'
+                    ]
+                })">
+                <img src="/assets/images/pr2/im1.jpg" alt="Wooden Train" class="h-64 w-full object-cover transition-transform duration-700 group-hover:scale-110" />
+                </div>
+
+                <div class="p-6">
+                <span class="inline-block bg-[#fee79c] text-[#353c1b] px-3 py-1 text-xs font-semibold rounded-full uppercase tracking-wide">Best Seller</span>
+                <h3 class="mt-4 text-lg font-semibold text-[#353c1b] group-hover:text-[#a2c617]">Green Stay Weird Typography Oversized</h3>
+                <p class="mt-1 text-[#353c1b]/80">$599</p>
+                <button onclick="addToCartAndGo({id:'Green Stay Weird Typography Oversized',title:'Green Stay Weird Typography Oversized',price:599,image:'/assets/images/pr2/im1.jpg'})"
+                    class="mt-4 w-full rounded-xl bg-gradient-to-r from-[#a2c617] to-[#fee79c] text-[#353c1b] font-medium py-3">🛒 Add to Cart</button>
+                </div>
+            </div>
+
+            <div data-aos="fade-up" data-aos-delay="300" class="group relative rounded-2xl overflow-hidden border border-[#a2c617]/30 bg-white shadow-sm hover:shadow-lg transition-all duration-500 transform hover:-translate-y-2 hover:scale-[1.02] card-shadow">
+                <button onclick="toggleWishlist(this,'OFFICIAL GARFIELD MERCHANDISE')" class="absolute end-4 top-4 z-10 rounded-full bg-white/80 backdrop-blur p-2 text-[#353c1b] hover:text-[#a2c617]" aria-label="wishlist">🤍</button>
+
+                <div class="overflow-hidden cursor-pointer"
+                onclick="openQuickView({
+                    id:'OFFICIAL GARFIELD MERCHANDISE',
+                    title:'OFFICIAL GARFIELD MERCHANDISE',
+                    price:649,
+                    desc:'Women Blue Lazy Garfield Graphic Printed Oversized T-shirt',
+                    image:'/assets/images/pr3/im1.jpg',
+                    images:[
+                    '/assets/images/pr3/im1.jpg',
+                    '/assets/images/pr3/im2.jpg',
+                    '/assets/images/pr3/im3.jpg',
+                    '/assets/images/pr3/im4.jpg'
+                    ]
+                })">
+                <img src="/assets/images/pr3/im1.jpg" alt="OFFICIAL GARFIELD MERCHANDISE" class="h-64 w-full object-cover transition-transform duration-700 group-hover:scale-110" />
+                </div>
+
+                <div class="p-6">
+                <span class="inline-block bg-[#fee79c] text-[#353c1b] px-3 py-1 text-xs font-semibold rounded-full uppercase tracking-wide">Trending</span>
+                <h3 class="mt-4 text-lg font-semibold text-[#353c1b] group-hover:text-[#a2c617]">OFFICIAL GARFIELD MERCHANDISE</h3>
+                <p class="mt-1 text-[#353c1b]/80">$649</p>
+                <button onclick="addToCartAndGo({id:'OFFICIAL GARFIELD MERCHANDISE',title:'OFFICIAL GARFIELD MERCHANDISE',price:649,image:'/assets/images/pr3/im1.jpg'})"
+                    class="mt-4 w-full rounded-xl bg-gradient-to-r from-[#a2c617] to-[#fee79c] text-[#353c1b] font-medium py-3">🛒 Add to Cart</button>
+                </div>
+            </div>
+
+            <div data-aos="fade-up" data-aos-delay="300" class="group relative rounded-2xl overflow-hidden border border-[#a2c617]/30 bg-white shadow-sm hover:shadow-lg transition-all duration-500 transform hover:-translate-y-2 hover:scale-[1.02] card-shadow">
+                <button onclick="toggleWishlist(this,'Men\'s Red Moon Rider Graphic Printed Oversized T-shirt')" class="absolute end-4 top-4 z-10 rounded-full bg-white/80 backdrop-blur p-2 text-[#353c1b] hover:text-[#a2c617]" aria-label="wishlist">🤍</button>
+
+                <div class="overflow-hidden cursor-pointer"
+                    onclick="openQuickView({
+                        id:'Men\'s Red Moon Rider Graphic Printed Oversized T-shirt',
+                        title:'Men\'s Red Moon Rider Graphic Printed Oversized T-shirt',
+                        price:599,
+                        desc:'Men\'s Red Moon Rider Graphic Printed Oversized T-shirt',
+                        image:'/assets/images/pr4/im1.jpg',
+                        images:[
+                            '/assets/images/pr4/im1.jpg',
+                            '/assets/images/pr4/im2.jpg',
+                            '/assets/images/pr4/im3.jpg',
+                            '/assets/images/pr4/im4.jpg'
+                        ]
+                    })">
+                    <img src="/assets/images/pr4/im1.jpg" alt="Men's Red Moon Rider Graphic Printed Oversized T-shirt" class="h-64 w-full object-cover transition-transform duration-700 group-hover:scale-110" />
+                </div>
+
+                <div class="p-6">
+                    <span class="inline-block bg-[#fee79c] text-[#353c1b] px-3 py-1 text-xs font-semibold rounded-full uppercase tracking-wide">Trending</span>
+                    <h3 class="mt-4 text-lg font-semibold text-[#353c1b] group-hover:text-[#a2c617]">Men's Red Moon Rider Graphic Printed Oversized T-shirt</h3>
+                    <p class="mt-1 text-[#353c1b]/80">$599</p>
+                    <button onclick="addToCartAndGo({id:'Men\'s Red Moon Rider Graphic Printed Oversized T-shirt',title:'Men\'s Red Moon Rider Graphic Printed Oversized T-shirt',price:599,image:'/assets/images/pr4/im1.jpg'})"
+                        class="mt-4 w-full rounded-xl bg-gradient-to-r from-[#a2c617] to-[#fee79c] text-[#353c1b] font-medium py-3">🛒 Add to Cart</button>
+                </div>
+            </div>
+
+      </div>
+    </div>
+  </section>
+
+  
+  <div id="quickViewModal" 
+      class="hidden fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-black/40 backdrop-blur-sm" 
+      aria-hidden="true">
+      
+      <div id="quickViewDialog" 
+          class="relative w-full max-w-5xl bg-white rounded-3xl overflow-y-auto grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 p-4 sm:p-6 shadow-xl max-h-[90vh]" 
+          role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+
+          <!-- Close Button -->
+          <button id="modalCloseBtn" onclick="closeQuickView()" 
+          class="absolute top-3 right-3 sm:top-4 sm:right-4 text-[#353c1b]/60 hover:text-[#a2c617] text-xl sm:text-2xl">
+          ✕
+          </button>
+
+          <!-- Left: Product Images -->
+          <div class="flex flex-col gap-3 items-center justify-center">
+          <div class="relative w-full bg-gray-50 rounded-xl overflow-hidden p-4 sm:p-6 flex items-center justify-center">
+              <button id="prevBtn" 
+              class="absolute left-3 sm:left-4 top-1/2 -translate-y-1/2 bg-white/90 p-2 rounded-md shadow hover:bg-white transition hidden md:block">‹</button>
+
+              <img id="modalMainImage" src="" alt="Product" 
+              class="max-h-[280px] sm:max-h-[420px] w-full object-contain" />
+
+              <button id="nextBtn" 
+              class="absolute right-3 sm:right-4 top-1/2 -translate-y-1/2 bg-white/90 p-2 rounded-md shadow hover:bg-white transition hidden md:block">›</button>
+          </div>
+
+          <div id="thumbs" class="mt-2 w-full px-2 flex items-center gap-3 overflow-x-auto pb-2"></div>
+          </div>
+
+          <!-- Right: Product Details -->
+          <div class="pt-2 pr-2">
+          <h3 id="modalTitle" class="text-xl sm:text-2xl font-semibold text-[#353c1b]"></h3>
+          <p id="modalPrice" class="text-xl sm:text-2xl font-extrabold mt-3 bg-gradient-to-r from-[#a2c617] to-[#fee79c] bg-clip-text text-transparent"></p>
+          <p id="modalDesc" class="text-[#353c1b]/80 mt-3 sm:mt-4 text-sm leading-relaxed"></p>
+
+          <!-- Size Options -->
+          <div class="mt-5">
+              <h4 class="text-sm font-semibold text-[#353c1b] mb-2">Size</h4>
+              <div id="sizeGroup" class="flex flex-wrap gap-2 sm:gap-3">
+              <button class="size-btn px-3 py-2 border border-[#a2c617]/30 rounded-md hover:bg-[#a2c617] hover:text-white transition">S</button>
+              <button class="size-btn px-3 py-2 border border-[#a2c617]/30 rounded-md hover:bg-[#a2c617] hover:text-white transition">M</button>
+              <button class="size-btn px-3 py-2 border border-[#a2c617]/30 rounded-md hover:bg-[#a2c617] hover:text-white transition">L</button>
+              </div>
+          </div>
+
+          <!-- Color Options -->
+          <div class="mt-5">
+              <h4 class="text-sm font-semibold text-[#353c1b] mb-2">Color</h4>
+              <div id="colorGroup" class="flex gap-3 items-center">
+              <div class="color-swatch w-8 h-8 rounded-full border-2 border-white shadow-md cursor-pointer bg-[#a2c617]"></div>
+              <div class="color-swatch w-8 h-8 rounded-full border-2 border-white shadow-md cursor-pointer bg-[#fee79c]"></div>
+              <div class="color-swatch w-8 h-8 rounded-full border-2 border-white shadow-md cursor-pointer bg-[#d1a9e8]"></div>
+              </div>
+          </div>
+
+          <!-- Quantity -->
+          <div class="mt-5 flex items-center gap-4">
+              <label class="text-sm font-medium text-[#353c1b]">Qty</label>
+              <div class="flex items-center border rounded-md overflow-hidden border-[#a2c617]/30">
+              <button id="qtyMinus" class="px-3 py-2">−</button>
+              <input id="qtyInput" class="w-14 text-center border-0 outline-none" value="1" type="number" min="1" />
+              <button id="qtyPlus" class="px-3 py-2">+</button>
+              </div>
+          </div>
+
+          <!-- Buttons -->
+          <div class="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <button id="modalAddBtn" 
+              class="w-full py-3 rounded-xl bg-gradient-to-r from-[#a2c617] to-[#fee79c] text-[#353c1b] font-medium hover:shadow-md transition flex items-center justify-center gap-2">
+              🛒 Add to Cart
+              </button>
+              <a href="customize.html" 
+              class="w-full py-3 rounded-xl border border-[#a2c617]/50 text-[#353c1b] hover:bg-[#a2c617]/10 transition flex items-center justify-center gap-2">
+              🎨 Customize
+              </a>
+          </div>
+
+          <p class="text-xs text-[#353c1b]/60 mt-4">SKU: RT-1001 • Free returns within 30 days</p>
+          </div>
+      </div>
+  </div>
+
+  <!-- Toast container (for add-to-cart feedback) -->
+  <div id="toastContainer" aria-live="polite" class="fixed bottom-6 right-6 z-50"></div>
+
+</main>
+
+
+<style>
+  @keyframes toast-in { from { transform: translateY(16px); opacity: 0 } to { transform: translateY(0); opacity: 1 } }
+  .toast {
+    animation: toast-in 240ms ease forwards;
+  }
+</style>
+
+
+
+
+
+
+
+    <footer 
+      class="relative overflow-hidden bg-gradient-to-b from-[#fffbea] to-[#fffbf0] text-[#353c1b] rounded-t-[3rem] shadow-inner py-16 px-6 md:px-12"
+      id="footer"
+      data-aos="fade-up"
+      data-aos-duration="800"
+    >
+      <!-- Soft glow animation background -->
+      <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[30rem] h-[30rem] bg-[#a2c617]/10 blur-[100px] rounded-full opacity-50 animate-pulse"></div>
+
+      <div class="relative z-10 mx-auto max-w-screen-xl">
+        <div class="md:flex md:justify-between md:items-start mb-12">
+          <!-- 🟢 Logo and description -->
+          <div class="mb-10 md:mb-0 flex flex-col items-center md:items-start text-center md:text-left">
+            <a href="#" class="flex items-center group">
+              <img 
+                src="/assets/images/image.png" 
+                class="h-20 transition-transform duration-300 group-hover:scale-105" 
+                alt="Print Your Style Logo" 
+              />
+            </a>
+            <p class="text-sm text-[#353c1b]/70 mt-4 max-w-sm">
+              Crafting high-quality, custom T-shirts that make your brand or idea shine. Designed, printed, and delivered with care.
+            </p>
+          </div>
+
+          <!-- 🟢 Footer Links -->
+          <div class="grid grid-cols-2 gap-10 sm:gap-16 sm:grid-cols-3 text-center md:text-left">
+            <!-- Resources -->
+            <div>
+              <h2 class="mb-5 text-sm font-semibold uppercase text-[#a2c617] tracking-wide">Resources</h2>
+              <ul class="space-y-2">
+                <li><a href="#" class="hover:text-[#a2c617] transition-all duration-300 hover:pl-1">Shop</a></li>
+                <li><a href="#" class="hover:text-[#a2c617] transition-all duration-300 hover:pl-1">Customize</a></li>
+                <li><a href="#" class="hover:text-[#a2c617] transition-all duration-300 hover:pl-1">Design Help</a></li>
+              </ul>
+            </div>
+
+            <!-- Follow Us -->
+            <div>
+              <h2 class="mb-5 text-sm font-semibold uppercase text-[#a2c617] tracking-wide">Follow Us</h2>
+              <ul class="space-y-2">
+                <li><a href="#" class="hover:text-[#a2c617] transition-all duration-300 hover:pl-1">Instagram</a></li>
+                <li><a href="#" class="hover:text-[#a2c617] transition-all duration-300 hover:pl-1">Facebook</a></li>
+              </ul>
+            </div>
+
+            <!-- Legal -->
+            <div>
+              <h2 class="mb-5 text-sm font-semibold uppercase text-[#a2c617] tracking-wide">Legal</h2>
+              <ul class="space-y-2">
+                <li><a href="#" class="hover:text-[#a2c617] transition-all duration-300 hover:pl-1">Privacy Policy</a></li>
+                <li><a href="#" class="hover:text-[#a2c617] transition-all duration-300 hover:pl-1">Terms &amp; Conditions</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Divider -->
+        <hr class="border-t border-[#a2c617]/20 my-8" />
+
+        <!-- 🟢 Bottom Info -->
+        <div class="sm:flex sm:items-center sm:justify-between text-center sm:text-left">
+          <span class="text-sm text-[#353c1b]/70">
+            © 2025 <a href="#" class="text-[#a2c617] font-medium hover:underline">Print Your Style™</a>. All Rights Reserved.
+          </span>
+
+          <div class="flex justify-center sm:justify-end mt-4 sm:mt-0 space-x-6">
+            <a href="#" class="text-[#353c1b]/70 hover:text-[#a2c617] transition transform hover:scale-110">
+              <i data-lucide="facebook" class="w-5 h-5"></i>
+            </a>
+            <a href="#" class="text-[#353c1b]/70 hover:text-[#a2c617] transition transform hover:scale-110">
+              <i data-lucide="instagram" class="w-5 h-5"></i>
+            </a>
+            <a href="#" class="text-[#353c1b]/70 hover:text-[#a2c617] transition transform hover:scale-110">
+              <i data-lucide="tiktok" class="w-5 h-5"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+
+  <script>
+
+  /* --- Wishlist Toggle --- */
+  function toggleWishlist(el) {
+    el = el || event.currentTarget;
+    const heart = el;
+    const isOn = heart.dataset.on === '1';
+    if (isOn) {
+      heart.dataset.on = '0';
+      heart.textContent = '🤍';
+      heart.classList.remove('text-[#a2c617]');
+    } else {
+      heart.dataset.on = '1';
+      heart.textContent = '💜';
+      heart.classList.add('text-[#a2c617]');
+    }
+    // TODO: persist to server / localStorage if needed
+  }
+
+
+  /* --- Add to Cart + Toast --- */
+  function addToCartAndGo(product) {
+    // Basic example: product = { id, title, price, image }
+    showCartToast(`${product.title} added to cart`);
+    // Note: implement your real add-to-cart logic here (cart state, API, redirect)
+    // For demo: console log
+    console.log('Added to cart:', product);
+  }
+
+  /* Toast UI */
+  function showCartToast(msg) {
+    const container = $('#toastContainer');
+    const t = document.createElement('div');
+    t.className = 'toast bg-[#a2c617] text-[#353c1b] px-5 py-3 rounded-xl shadow-lg mb-3';
+    t.textContent = msg;
+    container.appendChild(t);
+    setTimeout(() => {
+      t.style.opacity = '0';
+      t.style.transform = 'translateY(10px)';
+      setTimeout(() => t.remove(), 300);
+    }, 2000);
+  }
+
+
+  /* --- Quick View Modal Functionality (image carousel & qty) --- */
+  let currentProductImages = [];
+  let currentImageIndex = 0;
+
+  function openQuickView(product) {
+    // Accept either product object or dataset-based product
+    const modal = document.getElementById("quickViewModal");
+    $('#modalTitle').textContent = product.title || product;
+    $('#modalPrice').textContent = "₹" + (product.price ?? '');
+    $('#modalDesc').textContent = product.desc || '';
+    $('#modalMainImage').src = product.image || (product.images && product.images[0]) || '';
+    currentProductImages = product.images || [product.image];
+    currentImageIndex = 0;
+    renderThumbs();
+    modal.classList.remove('hidden');
+    document.body.classList.add('overflow-hidden');
+
+    // reset qty
+    $('#qtyInput').value = 1;
+  }
+
+  function renderThumbs() {
+    const thumbs = $('#thumbs');
+    thumbs.innerHTML = '';
+    currentProductImages.forEach((src, idx) => {
+      const img = document.createElement('img');
+      img.src = src;
+      img.className = 'h-20 w-20 object-cover rounded-lg border border-transparent hover:border-[#a2c617] cursor-pointer transition';
+      img.addEventListener('click', () => {
+        $('#modalMainImage').src = src;
+        currentImageIndex = idx;
+      });
+      thumbs.appendChild(img);
+    });
+  }
+
+  /* Prev / Next handlers */
+  $('#prevBtn').addEventListener('click', () => {
+    if (!currentProductImages.length) return;
+    currentImageIndex = (currentImageIndex - 1 + currentProductImages.length) % currentProductImages.length;
+    $('#modalMainImage').src = currentProductImages[currentImageIndex];
+  });
+  $('#nextBtn').addEventListener('click', () => {
+    if (!currentProductImages.length) return;
+    currentImageIndex = (currentImageIndex + 1) % currentProductImages.length;
+    $('#modalMainImage').src = currentProductImages[currentImageIndex];
+  });
+
+  /* Qty buttons */
+  $('#qtyPlus').addEventListener('click', () => {
+    $('#qtyInput').value = Math.max(1, Number($('#qtyInput').value) + 1);
+  });
+  $('#qtyMinus').addEventListener('click', () => {
+    $('#qtyInput').value = Math.max(1, Number($('#qtyInput').value) - 1);
+  });
+
+  /* Modal add to cart button (uses qty) */
+  $('#modalAddBtn').addEventListener('click', () => {
+    const title = $('#modalTitle').textContent;
+    const priceText = $('#modalPrice').textContent.replace(/[^\d]/g,'');
+    const price = Number(priceText) || 0;
+    const qty = Number($('#qtyInput').value) || 1;
+    addToCartAndGo({ title, price, qty });
+    closeQuickView();
+  });
+
+  /* Close on overlay click and Esc key */
+  document.getElementById('quickViewModal').addEventListener('click', (e) => {
+    if (e.target.id === 'quickViewModal') closeQuickView();
+  });
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeQuickView();
+  });
+
+  function closeQuickView() {
+    document.getElementById("quickViewModal").classList.add("hidden");
+    document.body.classList.remove("overflow-hidden");
+  }
+
+  /* Accessibility / small enhancement: make cards focusable and open modal on Enter */
+  $$('.product-card').forEach(card => {
+    card.tabIndex = 0;
+    card.addEventListener('keypress', (e) => {
+      if (e.key === 'Enter') {
+        const title = card.dataset.title;
+        const price = Number(card.dataset.price);
+        const image = card.querySelector('img')?.src || '';
+        openQuickView({ title, price, desc: '', image, images: [image] });
+      }
+    });
+  });
+  </script>
+  <script type="module">
+    import { motion } from "https://cdn.jsdelivr.net/npm/motion@10.16.4/+esm";
+    window.motion = motion;
+  </script>    
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script src="/js/script.js"></script>
+  <script src="/js/hero-slider.js"></script>
+  <script src="/js/cart.js"></script>
+  <script src="/js/Shop.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/3.1.2/flowbite.js" integrity="sha512-c9m0HP/+jR+ZgMbKqLHtvn8nT0IiJiw0NhgSWedfZWi1QvGS39Kz2w4Sbo7rD1eYA+fm7ypCLNR0gbAJv2mHQA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</body>
+</html>

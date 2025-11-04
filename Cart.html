@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PrintYourStyle | Custom T-Shirts</title>
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <link rel="stylesheet" href="/css/style.css">
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+  <style>
+    @keyframes parallaxMove { 0%{transform:translateY(0)}50%{transform:translateY(-30px)}100%{transform:translateY(0)} }
+    body { background-color: #fffbf0; }
+    .paper-texture { background-image: url('https://www.transparenttextures.com/patterns/paper-fibers.png'); opacity: 0.08; }
+    .price-gradient { background: linear-gradient(90deg,#74b21a,#fbe28a); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    .toast { position: fixed; left:50%; transform:translateX(-50%); bottom:36px; background:rgba(20,20,20,0.95); color:#fff; padding:10px 16px; border-radius:999px; box-shadow:0 8px 30px rgba(2,6,23,0.4); z-index:60; font-size:14px; display:flex; gap:10px; align-items:center; }
+  </style>
+</head>
+<body class="bg-[#fffbf0] text-[#353c1b] font-sans antialiased">
+
+    <nav class="bg-[#fffbf0] dark:bg-[#fffbf0] antialiased">
+        <div class="max-w-screen-xl px-4 mx-auto 2xl:px-0 py-4">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-8">
+
+                <div class="shrink-0 flex items-center">
+                <a href="/" title="PrintYourStyle" class="flex items-center space-x-2">
+                    <!-- Light mode logo -->
+                    <img
+                    class="block w-auto h-18 dark:hidden"
+                    src="/assets/images/image.png"
+                    alt="PrintYourStyle Logo"
+                    loading="lazy"
+                    >
+
+                    <!-- Dark mode logo -->
+                    <img
+                    class="hidden w-auto h-18 dark:block"
+                    src="/assets/images/image.png"
+                    alt="PrintYourStyle Logo Dark"
+                    loading="lazy"
+                    >
+                </a>
+                </div>
+                    <ul class="hidden lg:flex items-center justify-start gap-6 md:gap-8 py-3 sm:justify-center">
+                    <li>
+                        <a href="/index.html" title="" class="flex text-lg font-semibold text-[#353c1b] hover:text-[#a2c617] dark:text-[#353c1b] dark:hover:text-[#a2c617] transition-colors duration-200">
+                        Home
+                        </a>
+                    </li>
+                    <li class="shrink-0">
+                        <a href="/shop.html" title="" class="flex text-lg font-semibold text-[#353c1b] hover:text-[#a2c617] dark:text-[#353c1b] dark:hover:text-[#a2c617] transition-colors duration-200">
+                        Shop
+                        </a>
+                    </li>
+                    <li class="shrink-0">
+                        <a href="/customize.html" title="" class="flex text-lg font-semibold text-[#353c1b] hover:text-[#a2c617] dark:text-[#353c1b] dark:hover:text-[#a2c617] transition-colors duration-200">
+                        Customize
+                        </a>
+                    </li>
+                    <li class="shrink-0">
+                        <a href="/about.html" title="" class="flex text-lg font-semibold text-[#353c1b] hover:text-[#a2c617] dark:text-[#353c1b] dark:hover:text-[#a2c617] transition-colors duration-200">
+                        About Us
+                        </a>
+                    </li>
+                    <li class="shrink-0">
+                        <a href="/contact.html" title="" class="flex text-lg font-semibold text-[#353c1b] hover:text-[#a2c617] dark:text-[#353c1b] dark:hover:text-[#a2c617] transition-colors duration-200">
+                        Contact
+                        </a>
+                    </li>
+                    </ul>
+
+                </div>
+
+                <div class="flex items-center lg:space-x-2">
+                <button id="myCartDropdownButton1" onclick="window.location.href='Cart.html'" type="button"
+                    class="inline-flex items-center rounded-lg justify-center p-2 hover:bg-[#a2c617]/20 text-sm font-medium leading-none text-[#353c1b]  transition" >
+                    <span class="sr-only">Cart</span>
+                    <svg class="w-8 h-8 lg:me-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M5 4h1.5L9 16m0 0h8m-8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm-8.5-3h9.25L19 7H7.312" />
+                    </svg>
+                    <span class="hidden sm:flex">My Cart</span>
+                </button>
+
+                <button id="userDropdownButton1" onclick="window.location.href='Account.html'" type="button"
+                    class="inline-flex items-center rounded-lg justify-center p-2 hover:bg-[#a2c617]/20 text-sm font-medium text-[#353c1b] transition">
+                    <svg class="w-8 h-8 me-1" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                    <path stroke="currentColor" stroke-width="2"
+                        d="M7 17v1a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1v-1a3 3 0 0 0-3-3h-4a3 3 0 0 0-3 3Zm8-9a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+                    </svg>
+                    <span class="hidden sm:flex">Account</span>
+            
+                </button>
+                <!-- 📱 Mobile Menu Button -->
+                <button id="mobileMenuBtn"
+                    class="lg:hidden inline-flex items-center justify-center rounded-md p-2 hover:bg-[#a2c617]/20 text-[#353c1b] transition">
+                    <svg id="menuIcon" class="w-8 h-8" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" d="M4 6h16M4 12h16M4 18h16" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- 📱 Fullscreen Mobile Menu -->
+        <div id="mobileMenu"
+            class="fixed inset-0 hidden bg-[#fffbf0] z-40 flex flex-col items-center justify-center text-center space-y-8 transition-all duration-500 ease-in-out">
+            
+            <!-- Close Button -->
+            <button id="closeMenuBtn" class="absolute top-6 right-6 text-[#353c1b] hover:text-[#a2c617]">
+            <svg class="w-10 h-10" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+            </button>
+
+            <!-- Menu Links -->
+            <a href="/index.html" class="text-2xl font-bold text-[#353c1b] hover:text-[#a2c617] transition">Home</a>
+            <a href="/shop.html" class="text-2xl font-bold text-[#353c1b] hover:text-[#a2c617] transition">Shop</a>
+            <a href="/customize.html" class="text-2xl font-bold text-[#353c1b] hover:text-[#a2c617] transition">Customize</a>
+            <a href="/about.html" class="text-2xl font-bold text-[#353c1b] hover:text-[#a2c617] transition">About Us</a>
+            <a href="/contact.html" class="text-2xl font-bold text-[#353c1b] hover:text-[#a2c617] transition">Contact</a>
+            <a href="/cart.html" class="text-2xl font-bold text-[#353c1b] hover:text-[#a2c617] transition">My Cart</a>
+            <a href="/account.html" class="text-2xl font-bold text-[#353c1b] hover:text-[#a2c617] transition">Account</a>
+        </div>
+    </nav>
+
+  <div class="relative py-10">
+    <div class="absolute inset-0 -z-10 paper-texture"></div>
+    <div class="absolute top-0 left-0 w-full h-[120%] bg-gradient-to-b from-[#fee79c]/30 via-transparent to-[#d1a9e8]/30 animate-[parallaxMove_10s_linear_infinite] -z-20"></div>
+
+    <div class="max-w-5xl mx-auto px-6">
+      <div class="flex items-center justify-between mb-10">
+        <div>
+          <h1 class="text-3xl font-extrabold text-[#353c1b]">Your Cart</h1>
+          <p class="text-sm text-[#353c1b]/70 mt-1">Review items before checkout</p>
+        </div>
+        <div class="flex gap-3 items-center">
+          <a href="index.html" class="py-2 px-4 rounded-lg border border-[#a2c617]/30 hover:bg-[#a2c617]/10">← Continue shopping</a>
+          <span id="cartCountBadge" class="inline-flex items-center gap-2 bg-white px-3 py-2 rounded-full text-sm font-semibold text-[#a2c617] shadow">🛍️ <span id="cartCountNum">0</span></span>
+        </div>
+      </div>
+
+      <!-- Cart list -->
+      <div id="cartList" class="bg-white rounded-2xl p-6 card-shadow">
+        <!-- injected -->
+      </div>
+
+      <!-- totals -->
+      <div class="mt-6 flex justify-end gap-4">
+        <div class="w-full max-w-md bg-white p-6 rounded-2xl card-shadow">
+          <div class="flex justify-between items-center">
+            <span class="font-medium text-sm">Subtotal</span>
+            <span id="subtotal">$0.00</span>
+          </div>
+          <div class="flex justify-between items-center mt-3">
+            <span class="font-medium text-sm">Shipping</span>
+            <span id="shipping">$0.00</span>
+          </div>
+          <div class="border-t mt-4 pt-4 flex justify-between items-center">
+            <strong>Total</strong>
+            <strong id="grandTotal" class="text-lg price-gradient">$0.00</strong>
+          </div>
+
+          <div class="mt-6 grid grid-cols-1 gap-3">
+            <button id="checkoutBtn" class="w-full py-3 rounded-xl bg-[#a2c617] text-white font-medium">Checkout</button>
+            <button id="clearBtn" class="w-full py-3 rounded-xl border border-[#a2c617]/30 text-[#353c1b]">Clear Cart</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="toastRoot"></div>
+
+
+
+
+
+  <footer 
+      class="relative overflow-hidden bg-gradient-to-b from-[#fffbea] to-[#fffbf0] text-[#353c1b] rounded-t-[3rem] shadow-inner py-16 px-6 md:px-12"
+      id="footer"
+      data-aos="fade-up"
+      data-aos-duration="800"
+    >
+      <!-- Soft glow animation background -->
+      <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[30rem] h-[30rem] bg-[#a2c617]/10 blur-[100px] rounded-full opacity-50 animate-pulse"></div>
+
+      <div class="relative z-10 mx-auto max-w-screen-xl">
+        <div class="md:flex md:justify-between md:items-start mb-12">
+          <!-- 🟢 Logo and description -->
+          <div class="mb-10 md:mb-0 flex flex-col items-center md:items-start text-center md:text-left">
+            <a href="#" class="flex items-center group">
+              <img 
+                src="/assets/images/image.png" 
+                class="h-20 transition-transform duration-300 group-hover:scale-105" 
+                alt="Print Your Style Logo" 
+              />
+            </a>
+            <p class="text-sm text-[#353c1b]/70 mt-4 max-w-sm">
+              Crafting high-quality, custom T-shirts that make your brand or idea shine. Designed, printed, and delivered with care.
+            </p>
+          </div>
+
+          <!-- 🟢 Footer Links -->
+          <div class="grid grid-cols-2 gap-10 sm:gap-16 sm:grid-cols-3 text-center md:text-left">
+            <!-- Resources -->
+            <div>
+              <h2 class="mb-5 text-sm font-semibold uppercase text-[#a2c617] tracking-wide">Resources</h2>
+              <ul class="space-y-2">
+                <li><a href="#" class="hover:text-[#a2c617] transition-all duration-300 hover:pl-1">Shop</a></li>
+                <li><a href="#" class="hover:text-[#a2c617] transition-all duration-300 hover:pl-1">Customize</a></li>
+                <li><a href="#" class="hover:text-[#a2c617] transition-all duration-300 hover:pl-1">Design Help</a></li>
+              </ul>
+            </div>
+
+            <!-- Follow Us -->
+            <div>
+              <h2 class="mb-5 text-sm font-semibold uppercase text-[#a2c617] tracking-wide">Follow Us</h2>
+              <ul class="space-y-2">
+                <li><a href="#" class="hover:text-[#a2c617] transition-all duration-300 hover:pl-1">Instagram</a></li>
+                <li><a href="#" class="hover:text-[#a2c617] transition-all duration-300 hover:pl-1">Facebook</a></li>
+              </ul>
+            </div>
+
+            <!-- Legal -->
+            <div>
+              <h2 class="mb-5 text-sm font-semibold uppercase text-[#a2c617] tracking-wide">Legal</h2>
+              <ul class="space-y-2">
+                <li><a href="#" class="hover:text-[#a2c617] transition-all duration-300 hover:pl-1">Privacy Policy</a></li>
+                <li><a href="#" class="hover:text-[#a2c617] transition-all duration-300 hover:pl-1">Terms &amp; Conditions</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Divider -->
+        <hr class="border-t border-[#a2c617]/20 my-8" />
+
+        <!-- 🟢 Bottom Info -->
+        <div class="sm:flex sm:items-center sm:justify-between text-center sm:text-left">
+          <span class="text-sm text-[#353c1b]/70">
+            © 2025 <a href="#" class="text-[#a2c617] font-medium hover:underline">Print Your Style™</a>. All Rights Reserved.
+          </span>
+
+          <div class="flex justify-center sm:justify-end mt-4 sm:mt-0 space-x-6">
+            <a href="#" class="text-[#353c1b]/70 hover:text-[#a2c617] transition transform hover:scale-110">
+              <i data-lucide="facebook" class="w-5 h-5"></i>
+            </a>
+            <a href="#" class="text-[#353c1b]/70 hover:text-[#a2c617] transition transform hover:scale-110">
+              <i data-lucide="instagram" class="w-5 h-5"></i>
+            </a>
+            <a href="#" class="text-[#353c1b]/70 hover:text-[#a2c617] transition transform hover:scale-110">
+              <i data-lucide="tiktok" class="w-5 h-5"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+  </footer>
+
+
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <script src="/js/script.js"></script>
+  <script src="/js/hero-slider.js"></script>
+  <script src="/js/cart.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/3.1.2/flowbite.js" integrity="sha512-c9m0HP/+jR+ZgMbKqLHtvn8nT0IiJiw0NhgSWedfZWi1QvGS39Kz2w4Sbo7rD1eYA+fm7ypCLNR0gbAJv2mHQA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</body>
+</html>

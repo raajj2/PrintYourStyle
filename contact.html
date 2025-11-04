@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PrintYourStyle | Custom T-Shirts</title>
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body class="bg-[#fffbf0] text-[#353c1b] font-sans antialiased">
+
+    <nav class="bg-[#fffbf0] dark:bg-[#fffbf0] antialiased">
+        <div class="max-w-screen-xl px-4 mx-auto 2xl:px-0 py-4">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-8">
+
+                <div class="shrink-0 flex items-center">
+                <a href="/" title="PrintYourStyle" class="flex items-center space-x-2">
+                    <!-- Light mode logo -->
+                    <img
+                    class="block w-auto h-18 dark:hidden"
+                    src="/assets/images/image.png"
+                    alt="PrintYourStyle Logo"
+                    loading="lazy"
+                    >
+
+                    <!-- Dark mode logo -->
+                    <img
+                    class="hidden w-auto h-18 dark:block"
+                    src="/assets/images/image.png"
+                    alt="PrintYourStyle Logo Dark"
+                    loading="lazy"
+                    >
+                </a>
+                </div>
+                    <ul class="hidden lg:flex items-center justify-start gap-6 md:gap-8 py-3 sm:justify-center">
+                    <li>
+                        <a href="/index.html" title="" class="flex text-lg font-semibold text-[#353c1b] hover:text-[#a2c617] dark:text-[#353c1b] dark:hover:text-[#a2c617] transition-colors duration-200">
+                        Home
+                        </a>
+                    </li>
+                    <li class="shrink-0">
+                        <a href="/shop.html" title="" class="flex text-lg font-semibold text-[#353c1b] hover:text-[#a2c617] dark:text-[#353c1b] dark:hover:text-[#a2c617] transition-colors duration-200">
+                        Shop
+                        </a>
+                    </li>
+                    <li class="shrink-0">
+                        <a href="/customize.html" title="" class="flex text-lg font-semibold text-[#353c1b] hover:text-[#a2c617] dark:text-[#353c1b] dark:hover:text-[#a2c617] transition-colors duration-200">
+                        Customize
+                        </a>
+                    </li>
+                    <li class="shrink-0">
+                        <a href="/about.html" title="" class="flex text-lg font-semibold text-[#353c1b] hover:text-[#a2c617] dark:text-[#353c1b] dark:hover:text-[#a2c617] transition-colors duration-200">
+                        About Us
+                        </a>
+                    </li>
+                    <li class="shrink-0">
+                        <a href="/contact.html" title="" class="flex text-lg font-semibold text-[#353c1b] hover:text-[#a2c617] dark:text-[#353c1b] dark:hover:text-[#a2c617] transition-colors duration-200">
+                        Contact
+                        </a>
+                    </li>
+                    </ul>
+
+                </div>
+
+                <div class="flex items-center lg:space-x-2">
+                <button id="myCartDropdownButton1" onclick="window.location.href='Cart.html'" type="button"
+                    class="inline-flex items-center rounded-lg justify-center p-2 hover:bg-[#a2c617]/20 text-sm font-medium leading-none text-[#353c1b]  transition" >
+                    <span class="sr-only">Cart</span>
+                    <svg class="w-8 h-8 lg:me-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M5 4h1.5L9 16m0 0h8m-8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm-8.5-3h9.25L19 7H7.312" />
+                    </svg>
+                    <span class="hidden sm:flex">My Cart</span>
+                </button>
+
+                <button id="userDropdownButton1" onclick="window.location.href='Account.html'" type="button"
+                    class="inline-flex items-center rounded-lg justify-center p-2 hover:bg-[#a2c617]/20 text-sm font-medium text-[#353c1b] transition">
+                    <svg class="w-8 h-8 me-1" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                    <path stroke="currentColor" stroke-width="2"
+                        d="M7 17v1a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1v-1a3 3 0 0 0-3-3h-4a3 3 0 0 0-3 3Zm8-9a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+                    </svg>
+                    <span class="hidden sm:flex">Account</span>
+            
+                </button>
+                <!-- 📱 Mobile Menu Button -->
+                <button id="mobileMenuBtn"
+                    class="lg:hidden inline-flex items-center justify-center rounded-md p-2 hover:bg-[#a2c617]/20 text-[#353c1b] transition">
+                    <svg id="menuIcon" class="w-8 h-8" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" d="M4 6h16M4 12h16M4 18h16" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- 📱 Fullscreen Mobile Menu -->
+        <div id="mobileMenu"
+            class="fixed inset-0 hidden bg-[#fffbf0] z-40 flex flex-col items-center justify-center text-center space-y-8 transition-all duration-500 ease-in-out">
+            
+            <!-- Close Button -->
+            <button id="closeMenuBtn" class="absolute top-6 right-6 text-[#353c1b] hover:text-[#a2c617]">
+            <svg class="w-10 h-10" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+            </button>
+
+            <!-- Menu Links -->
+            <a href="/index.html" class="text-2xl font-bold text-[#353c1b] hover:text-[#a2c617] transition">Home</a>
+            <a href="/shop.html" class="text-2xl font-bold text-[#353c1b] hover:text-[#a2c617] transition">Shop</a>
+            <a href="/customize.html" class="text-2xl font-bold text-[#353c1b] hover:text-[#a2c617] transition">Customize</a>
+            <a href="/about.html" class="text-2xl font-bold text-[#353c1b] hover:text-[#a2c617] transition">About Us</a>
+            <a href="/contact.html" class="text-2xl font-bold text-[#353c1b] hover:text-[#a2c617] transition">Contact</a>
+            <a href="/cart.html" class="text-2xl font-bold text-[#353c1b] hover:text-[#a2c617] transition">My Cart</a>
+            <a href="/account.html" class="text-2xl font-bold text-[#353c1b] hover:text-[#a2c617] transition">Account</a>
+        </div>
+    </nav>
+
+    <section class="bg-[#fffbf0] text-[#353c1b] py-20" id="contact">
+    <div class="max-w-5xl mx-auto px-6">
+        <!-- Header -->
+        <div data-aos="fade-up" class="text-center mb-12">
+        <h2 class="text-4xl font-bold mb-3">Get in Touch</h2>
+        <p class="text-[#353c1b]/70 max-w-2xl mx-auto">
+            Have questions or ready to start your custom T-shirt project?  
+            Fill out the form below or visit our Ahmedabad office 🇮🇳.
+        </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-10">
+        <!-- 🌱 Contact Form -->
+        <form id="contact-form" data-aos="fade-right" class="bg-white rounded-3xl shadow-lg p-8 space-y-6">
+            <div>
+            <label class="block text-sm font-semibold mb-2">Full Name</label>
+            <input type="text" name="name" required placeholder="Your name" class="w-full border border-[#a2c617]/30 rounded-lg p-3 focus:ring-[#a2c617] focus:outline-none">
+            </div>
+
+            <div>
+            <label class="block text-sm font-semibold mb-2">Email Address</label>
+            <input type="email" name="email" required placeholder="your@email.com" class="w-full border border-[#a2c617]/30 rounded-lg p-3 focus:ring-[#a2c617] focus:outline-none">
+            </div>
+
+            <div>
+            <label class="block text-sm font-semibold mb-2">Message</label>
+            <textarea name="message" rows="4" required placeholder="Tell us about your project..." class="w-full border border-[#a2c617]/30 rounded-lg p-3 focus:ring-[#a2c617] focus:outline-none"></textarea>
+            </div>
+
+            <button type="submit" class="w-full py-3 rounded-xl bg-[#a2c617] text-white font-medium hover:bg-[#94b91b] transition">
+            Send Message
+            </button>
+        </form>
+
+        <!-- 📍 Contact Info + Map -->
+        <div data-aos="fade-left" class="space-y-6">
+            <div class="bg-white rounded-3xl shadow-lg p-8">
+            <h3 class="text-2xl font-semibold mb-4 text-[#a2c617]">Our Office</h3>
+            <ul class="space-y-3 text-[#353c1b]/80">
+                <li class="flex items-start gap-3">
+                <i data-lucide="map-pin" class="w-5 h-5 text-[#a2c617] mt-1"></i>
+                <span>Print Your Style, C.G. Road, Ahmedabad, Gujarat, India</span>
+                </li>
+                <li class="flex items-start gap-3">
+                <i data-lucide="phone" class="w-5 h-5 text-[#a2c617] mt-1"></i>
+                <a href="tel:+919876543210" class="hover:text-[#a2c617] transition">+91 98765 43210</a>
+                </li>
+                <li class="flex items-start gap-3">
+                <i data-lucide="mail" class="w-5 h-5 text-[#a2c617] mt-1"></i>
+                <a href="mailto:hello@printyourstyle.in" class="hover:text-[#a2c617] transition">hello@printyourstyle.in</a>
+                </li>
+            </ul>
+            </div>
+
+            <!-- Google Map -->
+            <div class="rounded-3xl overflow-hidden shadow-lg h-[300px]">
+            <iframe 
+                src="https://www.google.com/maps?q=Ahmedabad,+Gujarat,+India&output=embed" 
+                width="100%" 
+                height="100%" 
+                style="border:0;" 
+                allowfullscreen 
+                loading="lazy">
+            </iframe>
+            </div>
+        </div>
+        </div>
+    </div>
+    </section>
+
+    <a 
+    href="https://wa.me/919876543210?text=Hi!%20I%20want%20to%20get%20a%20quote%20for%20custom%20T-shirts." 
+    target="_blank"
+    class="fixed bottom-6 right-6 bg-[#25D366] text-white rounded-full w-14 h-14 flex items-center justify-center shadow-xl hover:scale-110 hover:shadow-2xl transition-transform duration-300 group z-50"
+    aria-label="Chat on WhatsApp"
+    >
+    <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7" viewBox="0 0 32 32" fill="currentColor">
+        <path d="M16.04 3.004c-7.277 0-13.196 5.92-13.196 13.197 0 2.328.61 4.6 1.77 6.6L3 29l6.4-1.68c1.916 1.046 4.075 1.596 6.26 1.596h.006c7.277 0 13.196-5.918 13.196-13.196.002-7.278-5.917-13.197-13.194-13.197zm0 23.994c-1.987 0-3.924-.528-5.614-1.53l-.402-.238-3.8.998 1.016-3.707-.26-.38a10.774 10.774 0 01-1.666-5.708c0-5.947 4.84-10.786 10.786-10.786 5.948 0 10.788 4.84 10.788 10.786.001 5.946-4.839 10.785-10.788 10.785zm5.944-8.08c-.326-.164-1.928-.951-2.226-1.06-.3-.11-.52-.165-.738.165-.217.327-.849 1.06-1.041 1.279-.19.217-.383.244-.707.082-.325-.165-1.373-.506-2.616-1.613-.967-.862-1.62-1.925-1.81-2.25-.19-.327-.02-.503.145-.666.149-.148.325-.383.488-.575.164-.191.217-.327.327-.545.11-.218.054-.409-.027-.574-.082-.164-.738-1.78-1.011-2.439-.266-.639-.537-.552-.738-.561-.19-.008-.409-.01-.63-.01-.218 0-.575.082-.875.383-.3.3-1.15 1.12-1.15 2.732s1.177 3.17 1.34 3.387c.164.217 2.317 3.542 5.617 4.961.785.339 1.396.541 1.872.693.787.25 1.504.215 2.07.13.633-.094 1.929-.787 2.203-1.547.273-.758.273-1.407.19-1.547-.08-.135-.3-.217-.625-.382z"/>
+    </svg>
+    <span class="absolute inset-0 rounded-full bg-[#25D366]/40 animate-ping opacity-75"></span>
+    <span class="absolute -left-32 bg-[#353c1b] text-white text-sm px-3 py-1 rounded-lg opacity-0 group-hover:opacity-100 transition-all duration-300">
+        Chat with us
+    </span>
+    </a>
+
+    <div id="thankYouModal" class="fixed inset-0 bg-black/40 hidden items-center justify-center z-50">
+    <div class="bg-white rounded-3xl p-8 text-center max-w-sm shadow-2xl animate-[fadeIn_0.4s_ease]">
+        <div class="mx-auto mb-4 bg-[#a2c617]/10 w-16 h-16 flex items-center justify-center rounded-full">
+        <i data-lucide="check" class="w-8 h-8 text-[#a2c617]"></i>
+        </div>
+        <h3 class="text-2xl font-semibold text-[#353c1b] mb-2">Thank You!</h3>
+        <p class="text-[#353c1b]/70 mb-6">Your message has been successfully sent.  
+        We’ll get back to you within 24 hours.</p>
+        <button onclick="closeModal()" class="px-5 py-2 bg-[#a2c617] text-white rounded-xl hover:bg-[#94b91b] transition">
+        Close
+        </button>
+    </div>
+    </div>
+
+    <script>
+    const form = document.getElementById('contact-form');
+    const modal = document.getElementById('thankYouModal');
+
+    form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        modal.classList.remove('hidden');
+        modal.classList.add('flex');
+        form.reset();
+    });
+
+    function closeModal() {
+        modal.classList.remove('flex');
+        modal.classList.add('hidden');
+    }
+    </script>
+
+    <style>
+    @keyframes fadeIn {
+        from { opacity: 0; transform: scale(0.9); }
+        to { opacity: 1; transform: scale(1); }
+    }
+    </style>
+
+    <footer 
+      class="relative overflow-hidden bg-gradient-to-b from-[#fffbea] to-[#fffbf0] text-[#353c1b] rounded-t-[3rem] shadow-inner py-16 px-6 md:px-12"
+      id="footer"
+      data-aos="fade-up"
+      data-aos-duration="800"
+    >
+      <!-- Soft glow animation background -->
+      <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[30rem] h-[30rem] bg-[#a2c617]/10 blur-[100px] rounded-full opacity-50 animate-pulse"></div>
+
+      <div class="relative z-10 mx-auto max-w-screen-xl">
+        <div class="md:flex md:justify-between md:items-start mb-12">
+          <!-- 🟢 Logo and description -->
+          <div class="mb-10 md:mb-0 flex flex-col items-center md:items-start text-center md:text-left">
+            <a href="#" class="flex items-center group">
+              <img 
+                src="/assets/images/image.png" 
+                class="h-20 transition-transform duration-300 group-hover:scale-105" 
+                alt="Print Your Style Logo" 
+              />
+            </a>
+            <p class="text-sm text-[#353c1b]/70 mt-4 max-w-sm">
+              Crafting high-quality, custom T-shirts that make your brand or idea shine. Designed, printed, and delivered with care.
+            </p>
+          </div>
+
+          <!-- 🟢 Footer Links -->
+          <div class="grid grid-cols-2 gap-10 sm:gap-16 sm:grid-cols-3 text-center md:text-left">
+            <!-- Resources -->
+            <div>
+              <h2 class="mb-5 text-sm font-semibold uppercase text-[#a2c617] tracking-wide">Resources</h2>
+              <ul class="space-y-2">
+                <li><a href="#" class="hover:text-[#a2c617] transition-all duration-300 hover:pl-1">Shop</a></li>
+                <li><a href="#" class="hover:text-[#a2c617] transition-all duration-300 hover:pl-1">Customize</a></li>
+                <li><a href="#" class="hover:text-[#a2c617] transition-all duration-300 hover:pl-1">Design Help</a></li>
+              </ul>
+            </div>
+
+            <!-- Follow Us -->
+            <div>
+              <h2 class="mb-5 text-sm font-semibold uppercase text-[#a2c617] tracking-wide">Follow Us</h2>
+              <ul class="space-y-2">
+                <li><a href="#" class="hover:text-[#a2c617] transition-all duration-300 hover:pl-1">Instagram</a></li>
+                <li><a href="#" class="hover:text-[#a2c617] transition-all duration-300 hover:pl-1">Facebook</a></li>
+              </ul>
+            </div>
+
+            <!-- Legal -->
+            <div>
+              <h2 class="mb-5 text-sm font-semibold uppercase text-[#a2c617] tracking-wide">Legal</h2>
+              <ul class="space-y-2">
+                <li><a href="#" class="hover:text-[#a2c617] transition-all duration-300 hover:pl-1">Privacy Policy</a></li>
+                <li><a href="#" class="hover:text-[#a2c617] transition-all duration-300 hover:pl-1">Terms &amp; Conditions</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Divider -->
+        <hr class="border-t border-[#a2c617]/20 my-8" />
+
+        <!-- 🟢 Bottom Info -->
+        <div class="sm:flex sm:items-center sm:justify-between text-center sm:text-left">
+          <span class="text-sm text-[#353c1b]/70">
+            © 2025 <a href="#" class="text-[#a2c617] font-medium hover:underline">Print Your Style™</a>. All Rights Reserved.
+          </span>
+
+          <div class="flex justify-center sm:justify-end mt-4 sm:mt-0 space-x-6">
+            <a href="#" class="text-[#353c1b]/70 hover:text-[#a2c617] transition transform hover:scale-110">
+              <i data-lucide="facebook" class="w-5 h-5"></i>
+            </a>
+            <a href="#" class="text-[#353c1b]/70 hover:text-[#a2c617] transition transform hover:scale-110">
+              <i data-lucide="instagram" class="w-5 h-5"></i>
+            </a>
+            <a href="#" class="text-[#353c1b]/70 hover:text-[#a2c617] transition transform hover:scale-110">
+              <i data-lucide="tiktok" class="w-5 h-5"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <script src="/js/script.js"></script>
+  <script src="/js/hero-slider.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/3.1.2/flowbite.js" integrity="sha512-c9m0HP/+jR+ZgMbKqLHtvn8nT0IiJiw0NhgSWedfZWi1QvGS39Kz2w4Sbo7rD1eYA+fm7ypCLNR0gbAJv2mHQA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</body>
+</html>

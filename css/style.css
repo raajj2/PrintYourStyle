@@ -1,0 +1,414 @@
+
+@media (min-width: 1000px) and (max-width: 2000px) {
+#hero-slider{
+    width: 1480px;
+}
+}
+
+.toast {
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  transform: translate(-50%, 0);
+  z-index: 9999;
+}
+
+.toast {
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #1a1a1a;
+  color: #fff;
+  padding: 10px 18px;
+  border-radius: 9999px;
+  font-size: 14px;
+  font-weight: 500;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  z-index: 9999;
+}
+
+@media (min-width: 768px) {
+  .process-line::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 2px;
+    background-color: rgba(162, 198, 23, 0.2);
+    transform: translateY(-50%);
+    z-index: -1;
+  }
+}
+
+
+@keyframes fadeInUp {
+  0% { opacity: 0; transform: translateY(20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+.animate-fade-in {
+  animation: fadeInUp 0.8s ease forwards;
+  opacity: 0;
+}
+.delay-150 { animation-delay: 0.15s; }
+.delay-300 { animation-delay: 0.3s; }
+
+/* Marquee animation: uses transform translateX for smooth GPU friendly movement */
+@keyframes marquee-left {
+  from { transform: translateX(0%); }
+  to   { transform: translateX(-50%); } /* track is duplicated, so -50% produces seamless loop */
+}
+/* Only animate if user allows animations */
+@media (prefers-reduced-motion: no-preference) {
+  #logo-marquee {
+    animation: marquee-left 18s linear infinite;
+  }
+  /* Slightly faster on wider screens */
+  @media (min-width: 1024px) {
+    #logo-marquee { animation-duration: 14s; }
+  }
+}
+/* Ensure marquee track is wide enough without wrapping */
+#logo-marquee > div { display: inline-flex; }
+/* When paused, we add this class to stop CSS animation */
+.marquee-paused { animation-play-state: paused !important; }
+/* small visual polish for offer CTA focus ring */
+#get-quote-cta:focus { box-shadow: 0 6px 18px rgba(166,198,23,0.15); }
+/* make sure marquee doesn't create horizontal scrollbar */
+body { overflow-x: hidden; }
+
+@keyframes parallaxMove { 0%{transform:translateY(0)}50%{transform:translateY(-30px)}100%{transform:translateY(0)} }
+  .modal-overlay { backdrop-filter: blur(8px); background-color: rgba(0,0,0,0.55); }
+  .thumb-active { box-shadow: 0 0 0 3px rgba(162,198,23,0.15), 0 4px 12px rgba(0,0,0,0.06); border-radius:10px; }
+  .swatch-active { box-shadow: 0 0 0 3px rgba(162,198,23,0.18); transform: translateY(-2px); }
+  .modal-image { transition: transform .45s ease; }
+  .modal-image:hover { transform: scale(1.03); }
+  .card-shadow { box-shadow: 0 8px 30px rgba(16,24,40,0.08); }
+  .price-gradient { background: linear-gradient(90deg,#74b21a,#fbe28a); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+  /* Toast */
+  .toast { position: fixed; left:50%; transform:translateX(-50%); bottom:36px; background:rgba(20,20,20,0.95); color:#fff; padding:10px 16px; border-radius:999px; box-shadow:0 8px 30px rgba(2,6,23,0.4); z-index:60; font-size:14px; display:flex; gap:10px; align-items:center; }
+
+
+
+
+
+
+
+
+/* ===========================================================
+   PrintYourStyle — style.css
+   Premium Tailwind enhancement layer
+   =========================================================== */
+
+:root {
+  --bg: #fffbf0;
+  --text: #353c1b;
+  --accent: #a2c617;
+  --accent-2: #fee79c;
+  --accent-3: #d1a9e8;
+}
+
+/* -----------------------------
+   General layout / typography
+----------------------------- */
+body {
+  font-family: "Inter", "Poppins", sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  scroll-behavior: smooth;
+}
+
+h1, h2, h3, h4 {
+  letter-spacing: -0.02em;
+}
+
+p {
+  line-height: 1.7;
+}
+
+/* -----------------------------
+   Scrollbar styling
+----------------------------- */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f7f4e9;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, var(--accent), var(--accent-2));
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(to bottom, var(--accent-2), var(--accent-3));
+}
+
+/* -----------------------------
+   Utility animations
+----------------------------- */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes popIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes floatUp {
+  0% { transform: translateY(5px); opacity: 0.7; }
+  100% { transform: translateY(0); opacity: 1; }
+}
+
+.fade-in {
+  animation: fadeIn 0.4s ease-out both;
+}
+
+.pop-in {
+  animation: popIn 0.3s ease-out both;
+}
+
+.float-up {
+  animation: floatUp 0.6s ease-out both;
+}
+
+/* -----------------------------
+   Card & hover effects
+----------------------------- */
+.card-shadow {
+  box-shadow: 0 8px 28px rgba(53, 60, 27, 0.07);
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.card-shadow:hover {
+  box-shadow: 0 12px 38px rgba(53, 60, 27, 0.1);
+}
+
+.hover-glow {
+  position: relative;
+  overflow: hidden;
+  transition: 0.3s;
+}
+
+.hover-glow::before {
+  content: "";
+  position: absolute;
+  top: -100%;
+  left: -100%;
+  width: 300%;
+  height: 300%;
+  background: radial-gradient(circle, rgba(162, 198, 23, 0.15) 0%, transparent 70%);
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.hover-glow:hover::before {
+  opacity: 1;
+}
+
+/* -----------------------------
+   Buttons
+----------------------------- */
+button, .btn {
+  transition: all 0.25s ease;
+}
+
+button:hover, .btn:hover {
+  transform: translateY(-2px);
+}
+
+button:active, .btn:active {
+  transform: translateY(0);
+}
+
+.gradient-btn {
+  background: linear-gradient(90deg, var(--accent), var(--accent-2));
+  color: var(--text);
+  border: none;
+}
+
+.gradient-btn:hover {
+  filter: brightness(1.1);
+}
+
+/* -----------------------------
+   Filter bar
+----------------------------- */
+.filter-btn {
+  transition: background 0.3s, transform 0.2s;
+}
+
+.filter-btn:hover {
+  background: var(--accent);
+  color: white;
+  transform: translateY(-2px);
+}
+
+/* -----------------------------
+   Pagination
+----------------------------- */
+#pagination button {
+  transition: all 0.25s ease;
+}
+
+#pagination button:hover {
+  background: var(--accent);
+  color: #fff;
+}
+
+/* -----------------------------
+   Modal (Quick View)
+----------------------------- */
+#quickViewModal {
+  animation: fadeIn 0.35s ease both;
+}
+
+#quickViewDialog {
+  animation: popIn 0.35s ease both;
+}
+
+#quickViewModal.show {
+  display: flex !important;
+  animation: fadeIn 0.3s ease forwards;
+}
+
+#quickViewModal.hide {
+  animation: fadeIn 0.2s ease reverse forwards;
+}
+
+/* Close button hover */
+#modalCloseBtn:hover {
+  transform: rotate(90deg);
+  transition: transform 0.3s ease;
+}
+
+/* Thumbnail hover */
+#thumbs img {
+  transition: transform 0.25s ease, border-color 0.25s;
+}
+
+#thumbs img:hover {
+  transform: scale(1.05);
+  border-color: var(--accent);
+}
+
+/* Size & color options */
+.size-btn.selected {
+  background: var(--accent);
+  color: white;
+}
+
+.color-swatch {
+  transition: transform 0.25s ease;
+}
+
+.color-swatch:hover {
+  transform: scale(1.1);
+}
+
+/* -----------------------------
+   Custom Product Card Overlays
+----------------------------- */
+.product-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.product-card img {
+  transition: transform 0.5s ease;
+}
+
+.product-card:hover img {
+  transform: scale(1.1);
+}
+
+.product-card .overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.1);
+  opacity: 0;
+  transition: opacity 0.4s;
+}
+
+.product-card:hover .overlay {
+  opacity: 1;
+}
+
+/* -----------------------------
+   Promo sections
+----------------------------- */
+.promo-card {
+  background: linear-gradient(to bottom right, #fff, #fffaf0);
+  border: 1px solid rgba(162, 198, 23, 0.15);
+  box-shadow: 0 6px 20px rgba(53, 60, 27, 0.05);
+  border-radius: 1.25rem;
+  padding: 1.5rem;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.promo-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(53, 60, 27, 0.1);
+}
+
+/* -----------------------------
+   Toast / Notification (optional)
+----------------------------- */
+.toast {
+  position: fixed;
+  right: 1rem;
+  bottom: 1rem;
+  background: var(--accent);
+  color: var(--text);
+  padding: 0.75rem 1rem;
+  border-radius: 0.75rem;
+  box-shadow: 0 5px 25px rgba(162, 198, 23, 0.2);
+  font-weight: 600;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.4s ease;
+  z-index: 999;
+}
+
+.toast.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* -----------------------------
+   Responsive Tweaks
+----------------------------- */
+@media (max-width: 768px) {
+  .filter-btn {
+    font-size: 0.875rem;
+    padding: 0.35rem 0.8rem;
+  }
+
+  #quickViewDialog {
+    max-height: 85vh;
+  }
+
+  .promo-card {
+    padding: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  #pagination button {
+    padding: 0.25rem 0.5rem;
+    font-size: 0.875rem;
+  }
+
+  .size-btn, .color-swatch {
+    transform: none !important;
+  }
+}
+
